@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn parkspot_platform.wsgi
+web: gunicorn schori_liem.wsgi
