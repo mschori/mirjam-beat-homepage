@@ -146,6 +146,10 @@ if os.environ.get('ENABLE_HTTPS_REDIRECT') == '1' or os.environ.get('ENABLE_HTTP
 # User-Model
 AUTH_USER_MODEL = 'users.User'
 
+# Login-Redirect
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
 # Locale-Paths
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 

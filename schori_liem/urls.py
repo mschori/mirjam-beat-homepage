@@ -18,7 +18,8 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='adminpanel'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', views.home, name='home'),
-    path('baby-wishlist', include('baby_wishlist.urls')),
+    path('baby-wishlist/', include('baby_wishlist.urls')),
 ]

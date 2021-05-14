@@ -7,18 +7,59 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="card m-3" style="width: 18rem;">
-                <img class="card-img-top"
-                     src="https://www.tchibo.ch/newmedia/art_img/MAIN_ALT_2-IMPORTED/f45281df0abea9e4/.jpg"
-                     alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-main">{% trans 'Mark as purchased' %}</a>
-                </div>
+
+        <div class="row justify-content-center text-center">
+            <div class="col-8">
+                <h1>Baby-Wishlist</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur, cumque debitis
+                    dignissimos eos facilis fugiat illo inventore ipsam nisi rem repudiandae rerum voluptatum. Animi et
+                    explicabo nam rerum voluptas?</p>
             </div>
+        </div>
+
+        <div class="row mt-3">
+            {% for wishlist_item in wishlist_items %}
+                <div class="card m-3" style="width: 18rem;">
+                    {% if wishlist_item.image_url %}
+                        <img class="card-img-top"
+                             src="{{ wishlist_item.image_url }}"
+                             alt="Wishlist-Item Image">
+                    {% else %}
+                        <img class="card-img-top"
+                             src="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg"
+                             alt="Wishlsit Item Image">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ wishlist_item.title }}</h5>
+                        <p class="card-text">{{ wishlist_item.description }}</p>
+                        <p>
+                            <b>CHF {{ wishlist_item.price|floatformat:2 }}</b>
+                        </p>
+                        {% if wishlist_item.product_url %}
+                            <p>
+                                <a href="{{ wishlist_item.product_url }}" target="_blank"
+                                   class="link-unstyled text-secondary">{% trans 'Go to product' %}</a>
+                            </p>
+                        {% else %}
+                            <p class="text-danger">
+                                {% trans 'No product-link present' %}
+                            </p>
+                        {% endif %}
+                        {% if wishlist_item.purchased %}
+                            {% if user.is_staff %}
+                                <a href="{% url 'unmark_product' wishlist_item.id %}"
+                                   class="btn btn-secondary">{% trans 'Unmark as purchased' %}</a>
+                            {% else %}
+                                <a href="#"
+                                   class="btn btn-outline-success disabled">{% trans 'Already purchased!' %}</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'mark_product' wishlist_item.id %}"
+                               class="btn btn-main">{% trans 'Mark as purchased' %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
