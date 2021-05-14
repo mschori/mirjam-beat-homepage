@@ -1,0 +1,14 @@
+/*
+Root-Settings
+ */
+:root {
+    --main-color: #5F9EA0;
+}
+
+/*
+Color-Settings
+ */
+.btn-main {
+    background-color: var(--main-color) !important;
+    color: white;
+}

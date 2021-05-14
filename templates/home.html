@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR">
+    <style>
+        .home-title {
+            font-family: 'Noto Sans KR', serif;
+            font-size: 5em;
+        }
+
+        .bg-home-title {
+            background-color: cadetblue;
+        }
+    </style>
+{% endblock %}
+
+{% block head_title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <div class="bg-home-title p-5">
+        <div class="container">
+            <div class="row text-center">
+                <p class="home-title text-white">Family Schori-Liem</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                {% blocktrans %}
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At debitis, dolores earum est eum
+                    exercitationem magni modi nostrum nulla numquam, quae unde velit voluptatum. Cupiditate ea maxime
+                    nesciunt quos voluptate.
+                {% endblocktrans %}
+            </div>
+            <div class="col">
+                <img src="https://www.jodiebrenton.com.au/wp-content/uploads/2019/09/family.jpg" alt=""
+                     class="img-fluid">
+            </div>
+        </div>
+    </div>
+{% endblock %}
