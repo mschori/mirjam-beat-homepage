@@ -1,0 +1,102 @@
+{% load bootstrap5 %}
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logos/Schori-Liem Logo Emblem.png' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logos/Schori-Liem Logo Emblem.png' %}">
+
+    <!-- CSS -->
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block custom_css %}{% endblock %}
+
+    <title>{% block head_title %}{% endblock %}</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/logos/Schori-Liem Logo Emblem.png' %}" alt="" width="30" height="30"
+                 class="d-inline-block align-text-top">
+            schori-liem
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link {% if request.resolver_match.url_name == 'home' %} text-secondary
+                {% endif %} " aria-current="page" href="{% url 'home' %}">{% trans 'Home' %}</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'baby_wishlist' %} text-secondary
+                {% endif %} " href="{% url 'baby_wishlist' %}">{% trans 'Baby Wishlis' %}t</a>
+            </div>
+
+            <ul class="navbar-nav d-flex">
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user text-secondary"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if user.is_staff %}
+                                <li><a class="dropdown-item" href="/admin">{% trans 'Adminpanel' %}</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-sm btn-secondary">Login</a>
+                    <a href="{% url 'login' %}" class="btn btn-sm btn-secondary ms-2">Signup</a>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Content -->
+<div class="mt-5">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Messages -->
+<div class="alert-float-center-bottom">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% ifequal message.tags 'error' %}danger{% else %}{{ message.tags }}{% endifequal %}
+            alert-dismissible fade show" role="alert">
+                {% if message.tags == 'success' %}
+                    <i class="fas fa-check-circle"></i>
+                {% elif message.tags == 'warning' %}
+                    <i class="fas fa-exclamation-triangle"></i>
+                {% elif message.tags == 'error' %}
+                    <i class="fas fa-times"></i>
+                {% endif %}
+                <span style="margin-left: 1em;">
+                {{ message }}
+                </span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<!-- JavaScript -->
+{% bootstrap_javascript %}
+<script src="https://kit.fontawesome.com/816e2cd94f.js" crossorigin="anonymous"></script>
+{% block custom_js %}{% endblock %}
+</body>
+</html>

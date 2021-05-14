@@ -1,0 +1,99 @@
+/*
+Root-Settings
+ */
+:root {
+    --main-color: #5F9EA0;
+    --secondary-color: #77282a;
+}
+
+/*
+Default Settings
+ */
+.link-unstyled {
+    text-decoration: none;
+}
+
+/*
+Message
+ */
+.alert-float-center-bottom {
+    position: fixed;
+    left: 30%;
+    bottom: 2%;
+    width: 40%;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For mobile phones: */
+    .alert-float-right-bottom {
+        width: 30%;
+    }
+}
+
+/*
+Color-Settings
+ */
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    border-color: var(--secondary-color) !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px var(--secondary-color) !important;
+    outline: 0 none;
+}
+
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.btn-main {
+    background-color: var(--main-color) !important;
+    color: white;
+    border-color: var(--main-color) !important;
+}
+
+.text-main {
+    color: var(--main-color) !important;
+}
+
+.text-main:hover {
+    color: var(--secondary-color) !important;
+}
+
+.text-main-hover:hover {
+    color: var(--main-color) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color) !important;
+    color: white;
+    border-color: var(--secondary-color) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+.text-secondary:hover {
+    color: var(--main-color) !important;
+}
+
+.text-secondary-hover:hover {
+    color: var(--secondary-color) !important;
+}
