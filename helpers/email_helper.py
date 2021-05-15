@@ -8,11 +8,16 @@ from users.tokens import email_confirm_token
 
 
 def send_signup_mail(user: User, domain: str):
+    """
+    Send Signup-Mail.
+    :param user: user-object
+    :param domain: domain from request
+    """
     message = render_to_string('emails/signup.html', {
         'user': user,
         'domain': domain,
         'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': email_confirm_token
+        'token': email_confirm_token.make_token(user)
     })
     email = EmailMessage(
         _('Verify your Email'),

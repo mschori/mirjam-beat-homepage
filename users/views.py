@@ -12,6 +12,11 @@ from .models import User
 
 
 def signup(request):
+    """
+    View for signup a new user.
+    :param request: request from user
+    :return: rendered signup-form
+    """
     form = UserRegistrationForm()
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -34,6 +39,11 @@ def signup(request):
 
 
 def resend_confirm_email(request):
+    """
+    Resend confirm-email.
+    :param request: request from user
+    :return: redirect to home
+    """
     user = get_user(request)
     if user.email_confirmed:
         messages.warning(request, _('Your email is already confirmed.'))
@@ -45,14 +55,22 @@ def resend_confirm_email(request):
 
 
 def confirm_email(request, uidb64, token):
-    user = None
+    """
+    Confirm email-address.
+    :param request: request from user
+    :param uidb64: id as uidb64
+    :param token: email-token
+    :return: return to home
+    """
     try:
         user_id = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=user_id)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-        messages.warning(request, _('Your link is invalid or expired.'))
-    if email_confirm_token.check_token(user, token):
+        user = None
+    if user is not None and email_confirm_token.check_token(user, token):
         user.email_confirmed = True
         user.save()
         messages.success(request, _('Your email is now confirmed. Thank you!'))
+    else:
+        messages.error(request, _('Your link is invalid or expired.'))
     return redirect('home')
