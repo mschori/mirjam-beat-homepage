@@ -1,0 +1,13 @@
+{% load i18n %}
+
+{% autoescape off %}
+    Schori-Liem
+
+    {% trans 'Hello' %} {{ user.firstname }}
+    {% trans 'Please click on the link below to confirm your email.' %}
+
+    http://{{ domain }}{% url 'confirm_email' uidb64=uid token=token %}
+
+    {% trans 'If the link is not working, copy and paste it in to your browser.' %}
+    {% trans 'Ignore this email if you dont have registered an account on our website.' %}
+{% endautoescape %}

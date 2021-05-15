@@ -54,6 +54,13 @@
                                     <hr class="dropdown-divider">
                                 </li>
                             {% endif %}
+                            {% if not user.email_confirmed %}
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'confirm_email_resend' %}">
+                                        {% trans 'I want to confirm my email' %}
+                                    </a>
+                                </li>
+                            {% endif %}
                             <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
                         </ul>
                     </li>
