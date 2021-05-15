@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load babywishlisttags %}
 
 {% block head_title %}
     Baby-Wishlist
@@ -32,19 +33,25 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ wishlist_item.title }}</h5>
                         <p class="card-text">{{ wishlist_item.description }}</p>
-                        <p>
-                            <b>CHF {{ wishlist_item.price|floatformat:2 }}</b>
-                        </p>
-                        {% if wishlist_item.product_url %}
-                            <p>
-                                <a href="{{ wishlist_item.product_url }}" target="_blank"
-                                   class="link-unstyled text-secondary">{% trans 'Go to product' %}</a>
-                            </p>
-                        {% else %}
-                            <p class="text-danger">
-                                {% trans 'No product-link present' %}
-                            </p>
-                        {% endif %}
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                 style="width: {{ wishlist_item|calculate_progress }}%" aria-valuenow="{{ wishlist_item|calculate_progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <b>CHF {{ wishlist_item.price_progress|floatformat:2 }}</b>
+                        from
+                        <b>CHF {{ wishlist_item.price_full|floatformat:2 }}</b>
+                        <div class="mt-2">
+                            {% if wishlist_item.product_url %}
+                                <p>
+                                    <a href="{{ wishlist_item.product_url }}" target="_blank"
+                                       class="link-unstyled text-secondary">{% trans 'Go to product' %}</a>
+                                </p>
+                            {% else %}
+                                <p class="text-danger">
+                                    {% trans 'No product-link present' %}
+                                </p>
+                            {% endif %}
+                        </div>
                         {% if wishlist_item.purchased %}
                             {% if user.is_staff %}
                                 <a href="{% url 'unmark_product' wishlist_item.id %}"
@@ -55,7 +62,7 @@
                             {% endif %}
                         {% else %}
                             <a href="{% url 'mark_product' wishlist_item.id %}"
-                               class="btn btn-main">{% trans 'Mark as purchased' %}</a>
+                               class="btn btn-main">{% trans 'I will contribute' %}</a>
                         {% endif %}
                     </div>
                 </div>
