@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 
 class Product(models.Model):
@@ -17,3 +18,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Contribution(models.Model):
+    """
+    Model for Wishlist-Contributions.
+    """
+    amount = models.FloatField(null=False)
+    comment = models.TextField(null=False)
+    product = models.ForeignKey(Product, null=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

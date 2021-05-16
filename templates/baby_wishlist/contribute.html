@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load bootstrap5 %}
+{% load babywishlisttags %}
+
+{% block head_title %}
+    {% trans 'Contribute' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="display-1">
+                {{ product.title }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div>
+                    {{ product.description }}
+                </div>
+                <div class="mt-2">
+                    <a href="{{ product.product_url }}" class="link-unstyled text-secondary">
+                        {% trans 'Go to product-site' %}
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <img src="{{ product.image_url }}" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <hr>
+    </div>
+
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="row g-3 align-items-center">
+                <div class="col-auto fw-bold">
+                    {% trans 'How much do you want to contribute to this product?' %}
+                </div>
+                <div class="col-auto">
+                    <input type="number" name="{{ form.contribute.html_name }}" id="{{ form.contribute.id_for_label }}"
+                           step="1" class="form-control" required
+                           placeholder="{% trans 'Amount' %}" min="1" max="{{ product|calculate_remaining_price }}">
+                </div>
+                <div class="col-auto">
+                    {% with product|calculate_remaining_price as remaining_price %}
+                        <span class="form-text">{% trans 'Maximum is CHF ' %}{{ remaining_price|floatformat:2 }}</span>
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <label for="{{ form.comment.id_for_label }}" class="form-label fw-bold">
+                        {% trans 'Write us about you and your contribution.' %}
+                    </label>
+                    <textarea name="{{ form.comment.html_name }}" id="{{ form.comment.id_for_label }}" cols="40"
+                              rows="10" class="form-control" required></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-secondary mt-4">
+                {% trans 'Contribute now' %}
+            </button>
+        </form>
+
+        <div class="row mt-5 mb-5 p-5 bg-main rounded">
+            <div class="row">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dicta distinctio dolor ducimus
+                    eaque ex nisi praesentium, quia quisquam rem repellendus, reprehenderit similique sint, tenetur
+                    ullam!
+                    Animi consequuntur dolorem non.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

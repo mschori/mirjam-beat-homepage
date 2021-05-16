@@ -35,7 +35,9 @@
                         <p class="card-text">{{ wishlist_item.description }}</p>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
-                                 style="width: {{ wishlist_item|calculate_progress }}%" aria-valuenow="{{ wishlist_item|calculate_progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                 style="width: {{ wishlist_item|calculate_progress }}%"
+                                 aria-valuenow="{{ wishlist_item|calculate_progress }}" aria-valuemin="0"
+                                 aria-valuemax="100"></div>
                         </div>
                         <b>CHF {{ wishlist_item.price_progress|floatformat:2 }}</b>
                         from
@@ -54,14 +56,14 @@
                         </div>
                         {% if wishlist_item.purchased %}
                             {% if user.is_staff %}
-                                <a href="{% url 'unmark_product' wishlist_item.id %}"
+                                <a href="{% url 'contribute_to_product' wishlist_item.id %}"
                                    class="btn btn-secondary">{% trans 'Unmark as purchased' %}</a>
                             {% else %}
                                 <a href="#"
                                    class="btn btn-outline-success disabled">{% trans 'Already purchased!' %}</a>
                             {% endif %}
                         {% else %}
-                            <a href="{% url 'mark_product' wishlist_item.id %}"
+                            <a href="{% url 'contribute_to_product' wishlist_item.id %}"
                                class="btn btn-main">{% trans 'I will contribute' %}</a>
                         {% endif %}
                     </div>

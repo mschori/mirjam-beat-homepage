@@ -1,11 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
-from django.utils.safestring import mark_safe
 from helpers import validation_helper
 from django import forms
 from .models import User
-import re
 
 
 class CustomUserCreationForm(UserCreationForm):
