@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% autoescape off %}
+    Schori-Liem
+
+    {% trans 'Hello' %} {{ user.firstname }}
+    {% trans 'Thank you very much for your contribution!' %}
+
+    {% trans 'Item: ' %} {{ product.title }}
+    {% trans 'Amount: CHF ' %} {{ contribution.amount }}
+
+    {% trans 'Open the following link for more informations about the contribution:' %}
+    http://{{ domain }}{% url 'babywishlist_thank-you-page' contribution.id %}
+
+    {% trans 'If the link is not working, copy and paste it in to your browser.' %}
+{% endautoescape %}

@@ -55,13 +55,8 @@
                             {% endif %}
                         </div>
                         {% if wishlist_item.purchased %}
-                            {% if user.is_staff %}
-                                <a href="{% url 'contribute_to_product' wishlist_item.id %}"
-                                   class="btn btn-secondary">{% trans 'Unmark as purchased' %}</a>
-                            {% else %}
-                                <a href="#"
-                                   class="btn btn-outline-success disabled">{% trans 'Already purchased!' %}</a>
-                            {% endif %}
+                            <a href="#"
+                               class="btn btn-outline-success disabled">{% trans 'Contribution finished!' %}</a>
                         {% else %}
                             <a href="{% url 'contribute_to_product' wishlist_item.id %}"
                                class="btn btn-main">{% trans 'I will contribute' %}</a>
