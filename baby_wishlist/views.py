@@ -8,7 +8,7 @@ from django_tables2 import RequestConfig
 from .forms import ContributeForm
 from helpers import email_helper, babywishlist_helper
 from .models import Product, Contribution
-from .tables import ContributionTable
+from .tables import ContributionTable, ContributionTableShort
 import os
 
 
@@ -114,5 +114,7 @@ def list_contributions(request):
     user = get_user(request)
     contributions = Contribution.objects.filter(user=user)
     table = ContributionTable(contributions)
+    table_short = ContributionTableShort(contributions)
     RequestConfig(request).configure(table)
-    return render(request, 'baby_wishlist/list_contributions.html', {'table': table})
+    RequestConfig(request).configure(table)
+    return render(request, 'baby_wishlist/list_contributions.html', {'table': table, 'table_short': table_short})

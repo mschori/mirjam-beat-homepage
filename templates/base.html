@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logos/Schori-Liem Logo Emblem.png' %}">
@@ -76,10 +77,11 @@
 </nav>
 
 <!-- Content -->
-<div class="mt-5">
-    {% block content %}
-    {% endblock %}
-</div>
+<div class="d-none d-lg-block mt-5"></div>
+<div class="d-lg-none mt-3"></div>
+
+{% block content %}
+{% endblock %}
 
 <!-- Messages -->
 <div class="alert-float-center-bottom">

@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col d-flex flex-column align-items-bottom">
+            <div class="col-12 col-lg-6 d-flex flex-column align-items-bottom">
                 <div>
                     {{ product.description }}
                 </div>
@@ -38,13 +38,24 @@
                     </a>
                 </div>
                 <div class="mt-auto text-center">
-                    <hr>
-                    <div class="bg-main rounded p-3 text-white">
-                    <h4>{% trans 'Already Contributed: CHF' %} {{ product.price_progress|floatformat:2 }} {% trans 'from CHF' %} {{ product.price_full|floatformat:2 }}</h4>
+                    <div class="d-none d-lg-block">
+                        <hr>
+                    </div>
+                    <div class="d-lg-none mt-3"></div>
+                    <div class="d-lg-none">
+                        <div class="bg-main rounded p-2 text-white">
+                            <h6 class="fw-light mb-0">{% trans 'Already Contributed: CHF' %} {{ product.price_progress|floatformat:2 }} {% trans 'from CHF' %} {{ product.price_full|floatformat:2 }}</h6>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-block">
+                        <div class="bg-main rounded p-3 text-white">
+                            <h4 class="fw-light mb-0">{% trans 'Already Contributed: CHF' %} {{ product.price_progress|floatformat:2 }} {% trans 'from CHF' %} {{ product.price_full|floatformat:2 }}</h4>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-12 col-lg-6">
+                <div class="d-lg-none mt-3"></div>
                 <img src="{{ product.image_url }}" alt="" class="img-fluid">
             </div>
         </div>
@@ -88,15 +99,30 @@
                 {% trans 'Contribute now' %}
             </button>
         </form>
-
-        <div class="row mt-5 mb-5 p-5 bg-main rounded">
-            <div class="row">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dicta distinctio dolor ducimus
-                    eaque ex nisi praesentium, quia quisquam rem repellendus, reprehenderit similique sint, tenetur
-                    ullam!
-                    Animi consequuntur dolorem non.
-                </p>
+        <div class="container">
+            <div class="d-lg-none">
+                <div class="row mt-4 mb-5 p-2 bg-main rounded text-white">
+                    <p class="mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dicta distinctio dolor
+                        ducimus
+                        eaque ex nisi praesentium, quia quisquam rem repellendus, reprehenderit similique sint,
+                        tenetur
+                        ullam!
+                        Animi consequuntur dolorem non.
+                    </p>
+                </div>
+            </div>
+            <div class="d-none d-lg-block">
+                <div class="row mt-5 mb-5 p-5 bg-main rounded text-white">
+                    <p class="mb-0">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dicta distinctio dolor
+                        ducimus
+                        eaque ex nisi praesentium, quia quisquam rem repellendus, reprehenderit similique sint,
+                        tenetur
+                        ullam!
+                        Animi consequuntur dolorem non.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
