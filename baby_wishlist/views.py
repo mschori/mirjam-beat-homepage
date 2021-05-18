@@ -4,9 +4,11 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth import get_user
 from django.utils.translation import gettext as _
 from django.contrib.auth.decorators import login_required
+from django_tables2 import RequestConfig
 from .forms import ContributeForm
 from helpers import email_helper, babywishlist_helper
 from .models import Product, Contribution
+from .tables import ContributionTable
 import os
 
 
@@ -19,42 +21,6 @@ def wishlist(request):
     """
     wishlist_items = Product.objects.all().order_by('purchased', '-price_progress')
     return render(request, 'baby_wishlist/wishlist.html', {'wishlist_items': wishlist_items})
-
-
-def mark_product(request, product_id):
-    """
-    View for marking wishlist-product as purchased.
-    :param request: request from user
-    :param product_id: id of selected product
-    :return: redirect to wishlist
-    """
-    try:
-        product = Product.objects.get(pk=product_id)
-    except Product.DoesNotExist:
-        messages.error(request, _('Product with this id does not exist!'))
-        return redirect('baby_wishlist')
-    product.purchased = True
-    product.save()
-    messages.success(request, _('Marked product as purchased!'))
-    return redirect('baby_wishlist')
-
-
-def unmark_product(request, product_id):
-    """
-    View for unmarking wishlist-product as purchased.
-    :param request: request from user
-    :param product_id: id of selected product
-    :return: redirect to wishlist
-    """
-    try:
-        product = Product.objects.get(pk=product_id)
-    except Product.DoesNotExist:
-        messages.error(request, _('Product with this id does not exist!'))
-        return redirect('baby_wishlist')
-    product.purchased = False
-    product.save()
-    messages.success(request, _('Unmarked product as purchased!'))
-    return redirect('baby_wishlist')
 
 
 @login_required()
@@ -116,6 +82,7 @@ def thank_you_page(request, contribution_id):
                   {'contribution': contribution, 'bankname': bankname, 'iban': iban, 'to': to})
 
 
+@login_required()
 def delete_contribution(request, contribution_id):
     """
     View for deleting an existing contribution.
@@ -135,3 +102,17 @@ def delete_contribution(request, contribution_id):
     babywishlist_helper.delete_contribution(contribution)
     messages.success(request, _('Successfully deleted your contribution.'))
     return redirect('baby_wishlist')
+
+
+@login_required()
+def list_contributions(request):
+    """
+    View for listing all contributions of request-user.
+    :param request: request from user
+    :return: rendered list of contributions
+    """
+    user = get_user(request)
+    contributions = Contribution.objects.filter(user=user)
+    table = ContributionTable(contributions)
+    RequestConfig(request).configure(table)
+    return render(request, 'baby_wishlist/list_contributions.html', {'table': table})

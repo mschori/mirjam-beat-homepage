@@ -61,6 +61,8 @@
                                     </a>
                                 </li>
                             {% endif %}
+                            <li><a class="dropdown-item"
+                                   href="{% url 'list_contributions' %}">{% trans 'My Contributions' %}</a></li>
                             <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
                         </ul>
                     </li>
@@ -105,6 +107,11 @@
 {% bootstrap_javascript %}
 <script src="https://kit.fontawesome.com/816e2cd94f.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $('[data-bs-toggle="tooltip"]').each(function () {
+        return new bootstrap.Tooltip(this, {container: 'body'});
+    });
+</script>
 {% block custom_js %}{% endblock %}
 </body>
 </html>

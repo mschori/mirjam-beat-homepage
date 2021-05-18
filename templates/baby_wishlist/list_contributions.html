@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load django_tables2 %}
+
+{% block head_title %}
+    {% trans 'My Contributions' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="row text-center mt-5">
+            <span class="display-1">{% trans 'Your contributions' %}</span>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-10">
+                {% render_table table %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

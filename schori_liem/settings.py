@@ -154,6 +154,9 @@ LOGOUT_REDIRECT_URL = 'home'
 # Locale-Paths
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
+# Django-Tables2
+DJANGO_TABLES2_TEMPLATE = 'django_tables2/default_table_style.html'
+
 # Activate Django-Heroku
 django_heroku.settings(locals())
 

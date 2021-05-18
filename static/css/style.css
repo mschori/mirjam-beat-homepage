@@ -3,13 +3,14 @@ Root-Settings
  */
 :root {
     --main-color: #5F9EA0;
+    --main-color-50: #d7f9fa;
     --secondary-color: #77282a;
 }
 
 /*
 Default Settings
  */
-.link-unstyled {
+.link-unstyled, .link-unstyled a {
     text-decoration: none;
 }
 
@@ -64,6 +65,10 @@ hr {
     background-color: var(--main-color) !important;
 }
 
+.bg-main-50 {
+    background-color: var(--main-color-50) !important;
+}
+
 .btn-main {
     background-color: var(--main-color) !important;
     color: white;
@@ -92,7 +97,7 @@ hr {
     border-color: var(--secondary-color) !important;
 }
 
-.text-secondary, .text-secondary-on-bg {
+.text-secondary, .text-secondary a, .text-secondary-on-bg {
     color: var(--secondary-color) !important;
 }
 
