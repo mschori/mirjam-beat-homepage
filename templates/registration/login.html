@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logos/Schori-Liem Logo Emblem.png' %}">
@@ -51,11 +52,11 @@
                         {% endif %}
                         <button type="submit" class="btn btn-secondary mt-3">{% trans 'Login' %}</button>
                         <p class="mt-3">
-                            <a class="link-unstyled text-secondary-on-bg fw-light" href="#">
+                            <a class="link-unstyled text-secondary-on-bg" href="{% url 'reset_password' %}">
                                 {% trans 'Forgot password' %}
                             </a>
                             <br>
-                            <a href="{% url 'signup' %}" class="link-unstyled text-secondary-on-bg fw-light">
+                            <a href="{% url 'signup' %}" class="link-unstyled text-secondary-on-bg">
                                 {% trans 'I want to register' %}
                             </a>
                         </p>
