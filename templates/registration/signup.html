@@ -18,7 +18,7 @@
 
     <title>Title</title>
 </head>
-<body class="bg-main">
+<body class="bg-main-50">
 
 <div class="container vh-100">
     <div class="row vh-100 align-items-center">
@@ -34,7 +34,7 @@
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="{{ form.firstname.id_for_label }}"
-                                   class="form-label text-white fw-bold mb-2">{% trans 'Firstname' %}</label>
+                                   class="form-label text-secondary fw-bold mb-2">{% trans 'Firstname' %}</label>
                             <input type="text" id="{{ form.firstname.id_for_label }}" class="form-control"
                                    name="{{ form.firstname.html_name }}" maxlength="50" required
                                     {% if form.firstname.value %}
@@ -47,7 +47,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="{{ form.lastname.id_for_label }}"
-                                   class="form-label text-white fw-bold mb-2">{% trans 'Lastname' %}</label>
+                                   class="form-label text-secondary fw-bold mb-2">{% trans 'Lastname' %}</label>
                             <input type="text" id="{{ form.lastname.id_for_label }}" class="form-control"
                                    name="{{ form.lastname.html_name }}" max="50" required
                                     {% if form.lastname.value %}
@@ -60,33 +60,33 @@
                         </div>
                         <div class="mb-3">
                             <label for="{{ form.email.id_for_label }}"
-                                   class="form-label text-white fw-bold mb-2">{% trans 'Email' %}</label>
+                                   class="form-label text-secondary fw-bold mb-2">{% trans 'E-Mail' %}</label>
                             <input type="email" id="{{ form.email.id_for_label }}" class="form-control"
                                    name="{{ form.email.html_name }}" max="150" required
                                     {% if form.email.value %}
                                    value="{{ form.email.value }}"
                                     {% endif %}
-                                   placeholder="{% trans 'Email' %}">
+                                   placeholder="{% trans 'E-Mail' %}">
                             <div id="lastnameHelp" class="form-text text-secondary">
                                 {{ form.email.errors.0 }}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="{{ form.password1.id_for_label }}"
-                                   class="form-label text-white fw-bold mb-2">{% trans 'Password' %}</label>
+                                   class="form-label text-secondary fw-bold mb-2">{% trans 'Password' %}</label>
                             <input type="password" id="{{ form.password1.id_for_label }}" class="form-control"
                                    name="{{ form.password1.html_name }}" max="50" required
                                    placeholder="{% trans 'Password' %}">
                             <div id="lastnameHelp" class="form-text text-secondary">
                                 {{ form.password1.errors.0 }}
                             </div>
-                            <div id="lastnameHelp" class="form-text text-white-50">
+                            <div id="lastnameHelp" class="form-text text-white">
                                 {% trans 'Must contain lower- and upercase character, a number and a miminum length of 8.' %}
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="{{ form.password2.id_for_label }}"
-                                   class="form-label text-white fw-bold mb-2">{% trans 'Repeat Password' %}</label>
+                                   class="form-label text-secondary fw-bold mb-2">{% trans 'Repeat Password' %}</label>
                             <input type="password" id="{{ form.password2.id_for_label }}" class="form-control"
                                    name="{{ form.password2.html_name }}" max="50" required
                                    placeholder="{% trans 'Repeat Password' %}">

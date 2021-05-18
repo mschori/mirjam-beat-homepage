@@ -2,9 +2,9 @@
 Root-Settings
  */
 :root {
-    --main-color: #5F9EA0;
-    --main-color-50: #d7f9fa;
-    --secondary-color: #77282a;
+    --main-color: #1d8fe0;
+    --main-color-50: #78c7ff;
+    --secondary-color: #a61919;
     --secondary-color-50: #f5d7d8;
 }
 
@@ -71,6 +71,15 @@ input[type="color"]:focus,
     outline: 0 none;
 }
 
+.home-title {
+    font-family: 'Noto Sans KR', serif;
+    font-size: 5em;
+}
+
+.bg-home-title {
+    background-color: var(--main-color);
+}
+
 hr {
     margin-top: 3em;
     margin-bottom: 3em;
@@ -117,7 +126,7 @@ hr {
     color: var(--secondary-color) !important;
 }
 
-.text-secondary:hover {
+.text-secondary a:hover {
     color: var(--main-color) !important;
 }
 
