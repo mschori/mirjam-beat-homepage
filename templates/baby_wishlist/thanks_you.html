@@ -25,11 +25,11 @@
             <div class="row">
                 <h4>{% trans 'Please send your contribution to the following bank-credentials.' %}</h4>
                 <p class="mt-3">
-                    {% trans 'Bankname: Raiffeisenbank Seeland' %}
+                    {% trans 'Bankname:' %}{{ bankname }}
                     <br>
-                    {% trans 'IBAN-Number: CH896513156787756' %}
+                    {% trans 'IBAN-Number:' %} {{ iban }}
                     <br>
-                    {% trans 'To: Michael Schori, Ballenbühlweg 11, 3076 Worb' %}
+                    {% trans 'To:' %} {{ to }}
                 </p>
             </div>
         </div>

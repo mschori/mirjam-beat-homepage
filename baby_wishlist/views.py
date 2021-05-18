@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ContributeForm
 from helpers import email_helper, babywishlist_helper
 from .models import Product, Contribution
+import os
 
 
 def wishlist(request):
@@ -16,7 +17,7 @@ def wishlist(request):
     :param request: request from user
     :return: rendered wishlist
     """
-    wishlist_items = Product.objects.all().order_by('title')
+    wishlist_items = Product.objects.all().order_by('purchased', '-price_progress')
     return render(request, 'baby_wishlist/wishlist.html', {'wishlist_items': wishlist_items})
 
 
@@ -108,7 +109,11 @@ def thank_you_page(request, contribution_id):
     except Contribution.DoesNotExist:
         messages.error(request, _('No Contribution with this ID found.'))
         return redirect('home')
-    return render(request, 'baby_wishlist/thanks_you.html', {'contribution': contribution})
+    bankname = os.environ.get('BANK_NAME')
+    iban = os.environ.get('BANK_IBAN')
+    to = os.environ.get('BANK_TO')
+    return render(request, 'baby_wishlist/thanks_you.html',
+                  {'contribution': contribution, 'bankname': bankname, 'iban': iban, 'to': to})
 
 
 def delete_contribution(request, contribution_id):

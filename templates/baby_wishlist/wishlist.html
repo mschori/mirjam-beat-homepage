@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load stringtags %}
 {% load babywishlisttags %}
+
+{% block custom_js %}
+    <script type="text/javascript">
+
+        $('.btn-more').each(function () {
+            $(this).on('click', function () {
+                let el_id = $(this).attr('id');
+                let dots = $('#dots-' + el_id);
+                let more = $('#more-' + el_id);
+                let btn = $('#' + el_id);
+
+                if ($(dots).hasClass('d-none')) {
+                    $(dots).removeClass('d-none');
+                    $(btn).html('Read more');
+                    $(more).addClass('d-none');
+                } else {
+                    $(dots).addClass('d-none');
+                    $(btn).html('Read less');
+                    $(more).removeClass('d-none');
+                }
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block head_title %}
     Baby-Wishlist
@@ -32,8 +57,15 @@
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ wishlist_item.title }}</h5>
-                        <p class="card-text">{{ wishlist_item.description }}</p>
-                        <div class="progress">
+                        <p class="card-text">
+                            {{ wishlist_item.description|cut_string_end:75 }}<span
+                                id="dots-rm-{{ wishlist_item.id }}">...</span><span
+                                id="more-rm-{{ wishlist_item.id }}"
+                                class="d-none">{{ wishlist_item.description|cut_string_start:75 }}</span>
+                        </p>
+                        <a class="text-secondary btn-more"
+                           id="rm-{{ wishlist_item.id }}">{% trans 'Read more' %}</a>
+                        <div class="progress mt-4 mb-2">
                             <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
                                  style="width: {{ wishlist_item|calculate_progress }}%"
                                  aria-valuenow="{{ wishlist_item|calculate_progress }}" aria-valuemin="0"

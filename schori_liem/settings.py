@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'phonenumber_field',
     'django_tables2',
+    'global',
     'users',
     'baby_wishlist',
 ]
