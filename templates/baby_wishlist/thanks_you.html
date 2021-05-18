@@ -2,14 +2,45 @@
 
 {% load i18n %}
 
+{% block custom_js %}
+    <script type="text/javascript">
+        $('#btn-delete').on('click', function () {
+            $('#btn-yes').attr('href', $('#url-delete').attr('href'));
+        });
+    </script>
+{% endblock %}
+
 {% block head_title %}
     {% trans 'Thank you!' %}
 {% endblock %}
 
 {% block content %}
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">{% trans 'Are you sure?' %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% blocktrans %}
+                        Do you really want to delete this contribution? Click Yes if you are sure. We will then
+                        substracted your contribution from the price-progress of the linked product.
+                    {% endblocktrans %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="" class="btn btn-main" id="btn-yes">{% trans 'Yes' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-10 col-lg-8">
                 <img src="https://www.jodiebrenton.com.au/wp-content/uploads/2019/09/family.jpg" alt=""
                      class="img-fluid">
             </div>
@@ -21,16 +52,32 @@
         <div class="row text-center mt-4">
             <h1 class="text-success">{% trans 'You contributet CHF' %} {{ contribution.amount|floatformat:2 }}</h1>
         </div>
-        <div class="bg-main rounded text-white text-center p-4 mt-4">
-            <div class="row">
-                <h4>{% trans 'Please send your contribution to the following bank-credentials.' %}</h4>
-                <p class="mt-3">
-                    {% trans 'Bankname:' %}{{ bankname }}
-                    <br>
-                    {% trans 'IBAN-Number:' %} {{ iban }}
-                    <br>
-                    {% trans 'To:' %} {{ to }}
-                </p>
+        <div class="d-lg-none">
+            <div class="bg-main rounded text-white text-center p-2 mt-3">
+                <div class="row">
+                    <h4>{% trans 'Please send your contribution to the following bank-credentials.' %}</h4>
+                    <p class="mt-3 mb-1">
+                        {% trans 'Bankname:' %} {{ bankname }}
+                        <br>
+                        {% trans 'IBAN-Number:' %} {{ iban }}
+                        <br>
+                        {% trans 'To:' %} {{ to }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="d-none d-lg-block">
+            <div class="bg-main rounded text-white text-center p-4 mt-4">
+                <div class="row">
+                    <h4>{% trans 'Please send your contribution to the following bank-credentials.' %}</h4>
+                    <p class="mt-3 mb-1">
+                        {% trans 'Bankname:' %} {{ bankname }}
+                        <br>
+                        {% trans 'IBAN-Number:' %} {{ iban }}
+                        <br>
+                        {% trans 'To:' %} {{ to }}
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -39,10 +86,11 @@
         <div class="text-center mt-3">
             {% trans 'You did not want to contribute to this prodcut? No problem, just click the following link to delete your contribution' %}
             <br>
-            <a href="{% url 'delete_contribution' contribution.id %}" class="btn btn-sm btn-secondary mt-4"
-               title="{% trans 'Delete contribution' %}">
+            <a href="{% url 'delete_contribution' contribution.id %}" class="d-none" id="url-delete"></a>
+            <button class="btn btn-sm btn-secondary mt-4" title="{% trans 'Delete contribution' %}" id="btn-delete"
+                    data-bs-toggle="modal" data-bs-target="#deleteModal">
                 <i class="far fa-trash-alt"></i> {% trans ' Delete my contribution' %}
-            </a>
+            </button>
         </div>
     </div>
 {% endblock %}

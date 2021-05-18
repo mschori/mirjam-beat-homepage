@@ -35,7 +35,7 @@
     <div class="container">
 
         <div class="row justify-content-center text-center">
-            <div class="col-8">
+            <div class="col-10 col-lg-8">
                 <h1>Baby-Wishlist</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur, cumque debitis
                     dignissimos eos facilis fugiat illo inventore ipsam nisi rem repudiandae rerum voluptatum. Animi et
@@ -43,9 +43,9 @@
             </div>
         </div>
 
-        <div class="row mt-3">
+        <div class="row justify-content-center mt-3">
             {% for wishlist_item in wishlist_items %}
-                <div class="card m-3" style="width: 18rem;">
+                <div class="card m-2" style="width: 18rem;">
                     {% if wishlist_item.image_url %}
                         <img class="card-img-top"
                              src="{{ wishlist_item.image_url }}"

@@ -7,7 +7,7 @@
     {% trans 'Thank you very much for your contribution!' %}
 
     {% trans 'Item: ' %} {{ product.title }}
-    {% trans 'Amount: CHF ' %} {{ contribution.amount }}
+    {% trans 'Amount: CHF ' %} {{ contribution.amount|floatformat:2 }}
 
     {% trans 'Open the following link for more informations about the contribution:' %}
     http://{{ domain }}{% url 'babywishlist_thank-you-page' contribution.id %}

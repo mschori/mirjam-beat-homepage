@@ -23,10 +23,10 @@ def send_signup_mail(user: User, domain: str):
     email = EmailMessage(
         _('Verify your Email'),
         message,
-        f'Schori-Liem <michael.schori.89@gmail.com>',
+        f'Schori-Liem <schori.liem@gmail.com>',
         to=[user.email]
     )
-    # email.send()
+    email.send()
 
 
 def send_babywish_thank_you_mail(user: User, domain: str, contribution: Contribution):
@@ -44,7 +44,7 @@ def send_babywish_thank_you_mail(user: User, domain: str, contribution: Contribu
     email = EmailMessage(
         _('Thank you!'),
         message,
-        f'Schori-Liem <michael.schori.89@gmail.com>',
+        f'Schori-Liem <schori.liem@gmail.com>',
         to=[user.email]
     )
-    # email.send()
+    email.send()

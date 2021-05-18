@@ -20,7 +20,15 @@
 {% endblock %}
 
 {% block content %}
-    <div class="bg-home-title p-5">
+    <div class="bg-home-title p-3 d-lg-none">
+        <div class="container">
+            <div class="row text-center">
+                <p class="display-4 mb-0 text-white">Family Schori-Liem</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-home-title p-5 d-none d-lg-block">
         <div class="container">
             <div class="row text-center">
                 <p class="home-title text-white">Family Schori-Liem</p>
@@ -30,14 +38,15 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-lg-6">
                 {% blocktrans %}
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. At debitis, dolores earum est eum
                     exercitationem magni modi nostrum nulla numquam, quae unde velit voluptatum. Cupiditate ea maxime
                     nesciunt quos voluptate.
                 {% endblocktrans %}
             </div>
-            <div class="col">
+            <div class="col-12 col-lg-6">
+                <div class="d-lg-none mt-3"></div>
                 <img src="https://www.jodiebrenton.com.au/wp-content/uploads/2019/09/family.jpg" alt=""
                      class="img-fluid">
             </div>

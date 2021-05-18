@@ -23,3 +23,22 @@ class ContributionTable(tables.Table):
 
     def render_amount(self, value, record):
         return f'CHF {value:.2f}'
+
+
+class ContributionTableShort(tables.Table):
+    class Meta:
+        model = Contribution
+        fields = ('product', 'amount')
+        attrs = {'class': 'table table-hover', 'th': {'class': 'text-secondary link-unstyled'}}
+
+    product = tables.Column(verbose_name=string_helper.translate_lazy_string(_('Product')))
+    amount = tables.Column(verbose_name=string_helper.translate_lazy_string(_('Amount')))
+    actions = tables.TemplateColumn(verbose_name=string_helper.translate_lazy_string(_('Actions')), orderable=False,
+                                    template_name='baby_wishlist/objects/action-buttons-list-contributions.html')
+
+    def render_product(self, value, record):
+        return format_html('<span data-bs-toggle="tooltip" title="{}">{}</span>', value,
+                           string_helper.cust_string_end(value.title, 10, True))
+
+    def render_amount(self, value, record):
+        return f'CHF {value:.2f}'

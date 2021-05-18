@@ -14,11 +14,20 @@
             <span class="display-1">{% trans 'Your contributions' %}</span>
         </div>
 
-        <div class="row justify-content-center mt-5">
-            <div class="col-12 col-lg-10">
-                {% render_table table %}
+        <div class="d-lg-none">
+            <div class="row justify-content-center mt-3">
+                <div class="col-12 col-lg-10">
+                    {% render_table table_short %}
+                </div>
             </div>
         </div>
 
+        <div class="d-none d-lg-block">
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 col-lg-10">
+                    {% render_table table %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
