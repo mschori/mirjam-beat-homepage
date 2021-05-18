@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'phonenumber_field',
     'django_tables2',
+    'global',
     'users',
     'baby_wishlist',
 ]
@@ -155,3 +156,10 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
 # Activate Django-Heroku
 django_heroku.settings(locals())
+
+# Email-Settings
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

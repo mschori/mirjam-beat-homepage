@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load bootstrap5 %}
+{% load babywishlisttags %}
+
+{% block custom_js %}
+    <script type="text/javascript">
+        let slider = $('#id_contribute');
+        let slider_text = $('#amount_text');
+        $(slider_text).html($(slider).val());
+
+        $(slider).on('input', function () {
+            $(slider_text).html($(slider).val())
+        });
+    </script>
+{% endblock %}
+
+{% block head_title %}
+    {% trans 'Contribute' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="display-1">
+                {{ product.title }}
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col d-flex flex-column align-items-bottom">
+                <div>
+                    {{ product.description }}
+                </div>
+                <div class="mt-3">
+                    <a href="{{ product.product_url }}" class="link-unstyled text-secondary">
+                        > {% trans 'Go to product-site' %}
+                    </a>
+                </div>
+                <div class="mt-auto text-center">
+                    <hr>
+                    <div class="bg-main rounded p-3 text-white">
+                    <h4>{% trans 'Already Contributed: CHF' %} {{ product.price_progress|floatformat:2 }} {% trans 'from CHF' %} {{ product.price_full|floatformat:2 }}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img src="{{ product.image_url }}" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <hr>
+    </div>
+
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="row g-3 align-items-center">
+                <div class="col-auto fw-bold">
+                    {% trans 'How much do you want to contribute to this product?' %}
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <input type="range" name="{{ form.contribute.html_name }}" id="{{ form.contribute.id_for_label }}"
+                           step="1" class="form-range" required
+                           placeholder="{% trans 'Amount' %}" value="{{ product|get_half_remaining_price }}" min="1"
+                           max="{{ product|calculate_remaining_price }}">
+                </div>
+                <div class="col">
+                    <span class="form-text">{% trans 'CHF' %}</span>
+                    <span class="form-text" id="amount_text"></span>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <label for="{{ form.comment.id_for_label }}" class="form-label fw-bold">
+                        {% trans 'Write us about you and your contribution.' %}
+                    </label>
+                    <textarea name="{{ form.comment.html_name }}" id="{{ form.comment.id_for_label }}" cols="40"
+                              rows="10" class="form-control" required></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-secondary mt-4">
+                {% trans 'Contribute now' %}
+            </button>
+        </form>
+
+        <div class="row mt-5 mb-5 p-5 bg-main rounded">
+            <div class="row">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dicta distinctio dolor ducimus
+                    eaque ex nisi praesentium, quia quisquam rem repellendus, reprehenderit similique sint, tenetur
+                    ullam!
+                    Animi consequuntur dolorem non.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

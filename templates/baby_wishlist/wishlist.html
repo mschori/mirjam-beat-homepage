@@ -1,5 +1,31 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load stringtags %}
+{% load babywishlisttags %}
+
+{% block custom_js %}
+    <script type="text/javascript">
+
+        $('.btn-more').each(function () {
+            $(this).on('click', function () {
+                let el_id = $(this).attr('id');
+                let dots = $('#dots-' + el_id);
+                let more = $('#more-' + el_id);
+                let btn = $('#' + el_id);
+
+                if ($(dots).hasClass('d-none')) {
+                    $(dots).removeClass('d-none');
+                    $(btn).html('Read more');
+                    $(more).addClass('d-none');
+                } else {
+                    $(dots).addClass('d-none');
+                    $(btn).html('Read less');
+                    $(more).removeClass('d-none');
+                }
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block head_title %}
     Baby-Wishlist
@@ -31,31 +57,41 @@
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ wishlist_item.title }}</h5>
-                        <p class="card-text">{{ wishlist_item.description }}</p>
-                        <p>
-                            <b>CHF {{ wishlist_item.price|floatformat:2 }}</b>
+                        <p class="card-text">
+                            {{ wishlist_item.description|cut_string_end:75 }}<span
+                                id="dots-rm-{{ wishlist_item.id }}">...</span><span
+                                id="more-rm-{{ wishlist_item.id }}"
+                                class="d-none">{{ wishlist_item.description|cut_string_start:75 }}</span>
                         </p>
-                        {% if wishlist_item.product_url %}
-                            <p>
-                                <a href="{{ wishlist_item.product_url }}" target="_blank"
-                                   class="link-unstyled text-secondary">{% trans 'Go to product' %}</a>
-                            </p>
-                        {% else %}
-                            <p class="text-danger">
-                                {% trans 'No product-link present' %}
-                            </p>
-                        {% endif %}
-                        {% if wishlist_item.purchased %}
-                            {% if user.is_staff %}
-                                <a href="{% url 'unmark_product' wishlist_item.id %}"
-                                   class="btn btn-secondary">{% trans 'Unmark as purchased' %}</a>
+                        <a class="text-secondary btn-more"
+                           id="rm-{{ wishlist_item.id }}">{% trans 'Read more' %}</a>
+                        <div class="progress mt-4 mb-2">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                 style="width: {{ wishlist_item|calculate_progress }}%"
+                                 aria-valuenow="{{ wishlist_item|calculate_progress }}" aria-valuemin="0"
+                                 aria-valuemax="100"></div>
+                        </div>
+                        <b>CHF {{ wishlist_item.price_progress|floatformat:2 }}</b>
+                        from
+                        <b>CHF {{ wishlist_item.price_full|floatformat:2 }}</b>
+                        <div class="mt-2">
+                            {% if wishlist_item.product_url %}
+                                <p>
+                                    <a href="{{ wishlist_item.product_url }}" target="_blank"
+                                       class="link-unstyled text-secondary">{% trans 'Go to product' %}</a>
+                                </p>
                             {% else %}
-                                <a href="#"
-                                   class="btn btn-outline-success disabled">{% trans 'Already purchased!' %}</a>
+                                <p class="text-danger">
+                                    {% trans 'No product-link present' %}
+                                </p>
                             {% endif %}
+                        </div>
+                        {% if wishlist_item.purchased %}
+                            <a href="#"
+                               class="btn btn-outline-success disabled">{% trans 'Contribution finished!' %}</a>
                         {% else %}
-                            <a href="{% url 'mark_product' wishlist_item.id %}"
-                               class="btn btn-main">{% trans 'Mark as purchased' %}</a>
+                            <a href="{% url 'contribute_to_product' wishlist_item.id %}"
+                               class="btn btn-main">{% trans 'I will contribute' %}</a>
                         {% endif %}
                     </div>
                 </div>
