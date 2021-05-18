@@ -30,3 +30,6 @@ class Contribution(models.Model):
     user = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.product.title}: {self.amount} from {self.user}'

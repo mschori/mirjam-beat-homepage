@@ -19,4 +19,20 @@ class EmailConfirmTokenGenerator(PasswordResetTokenGenerator):
         )
 
 
+class ResetPasswordTokenGenerator(PasswordResetTokenGenerator):
+    """
+    TokenGenerator for reset-password.
+    """
+
+    def _make_hash_value(self, user, timestamp):
+        """
+        Create token for reset_password.
+        :param user: user-object
+        :param timestamp: timestamp for token
+        :return: generated token
+        """
+        return str(int(user.pk) + int(timestamp)) + str(user.last_login)
+
+
 email_confirm_token = EmailConfirmTokenGenerator()
+reset_password_token = ResetPasswordTokenGenerator()

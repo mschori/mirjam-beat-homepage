@@ -6,9 +6,11 @@ from django.utils.translation import gettext as _
 from users.tokens import email_confirm_token
 from django.contrib.auth import get_user
 from django.contrib import messages
+from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
 from helpers import email_helper
 from .forms import UserRegistrationForm
 from .models import User
+from .tokens import reset_password_token
 
 
 def signup(request):
@@ -74,3 +76,59 @@ def confirm_email(request, uidb64, token):
     else:
         messages.error(request, _('Your link is invalid or expired.'))
     return redirect('home')
+
+
+def reset_password(request):
+    """
+    View for reset_password.
+    If POST:
+        Send email to user with reset-token.
+    :param request:
+    :return: render or redirect to reset_password (self)
+    """
+    if request.method == 'POST':
+        email = request.POST.get('email', None)
+        try:
+            user = User.objects.get(email=email)
+            domain = get_current_site(request).domain
+            email_helper.send_reset_password_mail(user, domain)
+            messages.success(request, _('Yout got an email from us. Please check you spam-folder if needed.'))
+            return redirect('reset_password')
+        except User.DoesNotExist:
+            messages.error(request, _('There is no account registered with this email.'))
+            return redirect('reset_password')
+    else:
+        form = PasswordResetForm()
+    return render(request, 'users/reset_password.html', {'form': form})
+
+
+def reset_password_confirm(request, uidb64, token):
+    """
+    View for confirm password reset.
+    :param request: request from user
+    :param uidb64: user-id as uidb64
+    :param token: generated user-token from email
+    :return: If token is valid:
+                rendered view to confrim password reset
+             else:
+                redirect to home
+    """
+    try:
+        user_id = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(id=user_id)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    if user is not None and reset_password_token.check_token(user, token):
+        if request.method == 'POST':
+            form = SetPasswordForm(user, request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, _('Your password is successfully changed.'))
+                return redirect('login')
+            else:
+                messages.error(request, _('Please check your inputs. The password is not valid.'))
+        form = SetPasswordForm(user)
+        return render(request, 'users/reset_password_confirm.html', {'form': form})
+    else:
+        messages.warning(request, _('Your link is invalid or expired.'))
+        return redirect('reset_password')
