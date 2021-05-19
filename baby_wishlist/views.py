@@ -32,14 +32,17 @@ def contribute_to_product(request, product_id):
     :return: rendered contribution-site
     """
     user = get_user(request)
-    form = ContributeForm()
     try:
         product = Product.objects.get(pk=product_id)
     except Product.DoesNotExist:
         messages.error(request, _('Product with this id does not exist!'))
         return redirect('baby_wishlist')
+    if babywishlist_helper.is_product_price_progress_finished(product):
+        messages.warning(request, _('Product is already fully paid. Please choose an other product.'))
+        return redirect('baby_wishlist')
+    form = ContributeForm(product=product)
     if request.method == 'POST':
-        form = ContributeForm(request.POST)
+        form = ContributeForm(request.POST, product=product)
         if form.is_valid():
             if form.cleaned_data['contribute'] > babywishlist_helper.calculate_remaining_price(product):
                 messages.warning(request, _('You cant contribute more than the remaining price.'))
