@@ -10,6 +10,15 @@ def is_product_price_progress_finished(product: Product):
     return product.price_progress >= product.price_full
 
 
+def is_progress_price_null(product: Product):
+    """
+    Check if the progress-price of a product is Null.
+    :param product: product to check
+    :return: boolean
+    """
+    return product.price_progress <= 0
+
+
 def calculate_progress(product: Product):
     """
     Calculate current progress of product-purchase.

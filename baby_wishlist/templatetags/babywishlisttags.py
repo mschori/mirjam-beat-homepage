@@ -15,6 +15,16 @@ def calculate_progress(product: Product):
     return babywishlist_helper.calculate_progress(product)
 
 
+def is_progress_price_null(product: Product):
+    """
+    Template-Tag.
+    Check if progress-price is zero.
+    :param product: product to check
+    :return: boolean
+    """
+    return babywishlist_helper.is_progress_price_null(product)
+
+
 def calculate_remaining_price(product: Product):
     """
     Template-Tag.
@@ -36,5 +46,6 @@ def get_half_remaining_price(product: Product):
 
 
 register.filter(calculate_progress)
+register.filter(is_progress_price_null)
 register.filter(calculate_remaining_price)
 register.filter(get_half_remaining_price)

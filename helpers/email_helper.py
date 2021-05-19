@@ -47,6 +47,7 @@ def send_babywish_thank_you_mail(user: User, domain: str, contribution: Contribu
         f'Schori-Liem <schori.liem@gmail.com>',
         to=[user.email]
     )
+    email.content_subtype = 'html'
     email.send()
 
 
