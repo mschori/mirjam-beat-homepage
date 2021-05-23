@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-23 11:11+0200\n"
+"POT-Creation-Date: 2021-05-23 11:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,7 +131,7 @@ msgid ""
 "buying it ourselfe. But be sure, then this is only possible if you pay the "
 "full price."
 msgstr ""
-"Du möchtest dieses Produkt direkt selbst einkaufen? Klicke die box an und "
+"Du möchtest dieses Produkt direkt selbst einkaufen? Klicke diese Box an und "
 "wir werden dir den Einkauf überlassen. Aber pass auf, das ist nur möglich, "
 "wenn du den vollen Betrag übernimmst."
 
@@ -187,7 +187,7 @@ msgstr "Dein Beitrag: CHF"
 #: .\templates\baby_wishlist\thanks_you.html:59
 #: .\templates\baby_wishlist\thanks_you.html:73
 msgid "Please send your contribution to the following bank-credentials."
-msgstr "Bitte sende deinen Beitrag an das folgende Bankkonto."
+msgstr "Bitte sende deinen Beitrag an folgendes Bankkonto:"
 
 #: .\templates\baby_wishlist\thanks_you.html:61
 #: .\templates\baby_wishlist\thanks_you.html:75
@@ -210,7 +210,7 @@ msgid ""
 "following link to delete your contribution"
 msgstr ""
 "Du wolltest nicht zu diesem Produkt beitragen? Kein Problem, klicke auf den "
-"folgenden Link um deinen Beitrag zu löschen."
+"folgenden Link, um deinen Beitrag zu löschen."
 
 #: .\templates\baby_wishlist\thanks_you.html:91
 msgid "Delete contribution"
@@ -254,7 +254,7 @@ msgid "Home"
 msgstr "Home"
 
 #: .\templates\base.html:42
-msgid "Baby Wishlis"
+msgid "Baby Wishlist"
 msgstr "Baby Wunschliste"
 
 #: .\templates\base.html:54
