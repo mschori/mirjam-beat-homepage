@@ -292,7 +292,7 @@ msgstr "Vielen Dank für deinen Beitrag!"
 
 #: .\templates\emails\babywishlist_thankyou.html:37
 msgid "You contributed the following:"
-msgstr "Du hast folgendes beigetragen:"
+msgstr "Du hast Folgendes beigetragen:"
 
 #: .\templates\emails\babywishlist_thankyou.html:39
 msgid "Product: "
