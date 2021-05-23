@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% load i18n %}
 
 {% block custom_js %}
@@ -30,7 +31,7 @@
                     {% endblocktrans %}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
                     <a href="" class="btn btn-main" id="btn-yes">{% trans 'Yes' %}</a>
                 </div>
             </div>
@@ -40,8 +41,8 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-10 col-lg-8">
-                <img src="https://www.jodiebrenton.com.au/wp-content/uploads/2019/09/family.jpg" alt=""
+            <div class="col-10 col-lg-8 text-center">
+                <img src="{% static 'images/logos/Schori-Liem Logo.png' %}" alt=""
                      class="img-fluid">
             </div>
         </div>

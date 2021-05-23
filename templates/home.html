@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+
+{% load static %}
 {% load i18n %}
 
 {% block custom_css %}
@@ -18,7 +20,7 @@
         </div>
     </div>
 
-    <div class="bg-home-title p-5 d-none d-lg-block">
+    <div class="bg-home-title p-3 d-none d-lg-block">
         <div class="container">
             <div class="row text-center">
                 <p class="home-title text-white">Family Schori-Liem</p>
@@ -30,7 +32,7 @@
     <div class="d-lg-none mt-4"></div>
 
     <div class="container mb-3">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12 col-lg-6">
                     <p>Liebe Familie, liebe Freunde</p>
                     <p>Um den 10. November 2021 herum ist es soweit! Wir werden zum ersten Mal Eltern und freuen uns riesig
@@ -38,9 +40,9 @@
                     bereits gekauft haben und was wir alles noch für unser Bébéli Yuna benötigen. Zudem soll die Seite
                     eine Orientierung für euch sein, damit ihr seht, was wir noch brauchen und was nicht.</p>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-4 text-center">
                 <div class="d-lg-none mt-3"></div>
-                <img src="https://www.jodiebrenton.com.au/wp-content/uploads/2019/09/family.jpg" alt=""
+                <img src="{% static 'images/people/schori-liem-poeple.jpeg' %}" alt=""
                      class="img-fluid">
             </div>
         </div>

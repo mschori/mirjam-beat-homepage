@@ -15,11 +15,11 @@
 
                 if ($(dots).hasClass('d-none')) {
                     $(dots).removeClass('d-none');
-                    $(btn).html('Read more');
+                    $(btn).html('{% trans 'Read more' %}');
                     $(more).addClass('d-none');
                 } else {
                     $(dots).addClass('d-none');
-                    $(btn).html('Read less');
+                    $(btn).html('{% trans 'Read less' %}');
                     $(more).removeClass('d-none');
                 }
             });
@@ -65,7 +65,7 @@
                                 id="more-rm-{{ wishlist_item.id }}"
                                 class="d-none">{{ wishlist_item.description|cut_string_start:75 }}</span>
                         </p>
-                        <a class="text-secondary btn-more"
+                        <a class="text-secondary btn-more" style="cursor: pointer;"
                            id="rm-{{ wishlist_item.id }}">{% trans 'Read more' %}</a>
                         <div class="progress mt-4 mb-2">
                             <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
@@ -74,7 +74,7 @@
                                  aria-valuemax="100"></div>
                         </div>
                         <b>CHF {{ wishlist_item.price_progress|floatformat:2 }}</b>
-                        from
+                        {% trans 'from' %}
                         <b>CHF {{ wishlist_item.price_full|floatformat:2 }}</b>
                         <div class="mt-2">
                             {% if wishlist_item.product_url %}

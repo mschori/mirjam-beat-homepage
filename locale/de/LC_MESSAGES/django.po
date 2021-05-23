@@ -1,0 +1,540 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-23 11:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\baby_wishlist\forms.py:23
+msgid ""
+"Ups. Somebody already contributed to this product. Selfbuy is not possible."
+msgstr ""
+"Ups. Jemand hat bereits zu diesem Produkt beigetragen. Du kannst das Produkt "
+"daher nicht selbst einkaufen."
+
+#: .\baby_wishlist\forms.py:28
+msgid ""
+"You need to contribute the full price in order to buy this product on your "
+"selfe."
+msgstr ""
+"Du musst den gesamten Betrag beitragen, wenn du das Produkt selbst einkaufen "
+"möchtest."
+
+#: .\baby_wishlist\tables.py:14 .\baby_wishlist\tables.py:34
+msgid "Product"
+msgstr "Produkt"
+
+#: .\baby_wishlist\tables.py:15
+msgid "Comment"
+msgstr "Kommentar"
+
+#: .\baby_wishlist\tables.py:16 .\baby_wishlist\tables.py:35
+#: .\templates\baby_wishlist\contribute.html:112
+msgid "Amount"
+msgstr "Beitrag"
+
+#: .\baby_wishlist\tables.py:17 .\baby_wishlist\tables.py:36
+msgid "Actions"
+msgstr "Aktionen"
+
+#: .\baby_wishlist\views.py:38
+msgid "Product with this id does not exist!"
+msgstr "Es existiert kein Produkt mit dieser ID!"
+
+#: .\baby_wishlist\views.py:41
+msgid "Product is already fully paid. Please choose an other product."
+msgstr ""
+"Für dieses Produkt wurde bereits genug beigetragen. Bitte wähle ein anders "
+"Produkt."
+
+#: .\baby_wishlist\views.py:48
+msgid "You cant contribute more than the remaining price."
+msgstr "Du kannst nicht mehr beitragen als notwendig ist."
+
+#: .\baby_wishlist\views.py:57
+msgid "Contribution confirmed."
+msgstr "Deinen Beitrag haben wir vermerkt."
+
+#: .\baby_wishlist\views.py:76
+msgid "This contribution does not belong to you."
+msgstr "Dieser Beitrag gehört nicht zu deinem Account."
+
+#: .\baby_wishlist\views.py:79 .\baby_wishlist\views.py:103
+msgid "No Contribution with this ID found."
+msgstr "Es wurde kein Beitrag mit dieser ID gefunden."
+
+#: .\baby_wishlist\views.py:100
+msgid "You can only delete your own contributions."
+msgstr "Du kannst nur deine eigenen Beiträge löschen."
+
+#: .\baby_wishlist\views.py:106
+msgid "Successfully deleted your contribution."
+msgstr "Dein Beitrag wurde erfolgreich gelöscht."
+
+#: .\helpers\email_helper.py:24
+msgid "Verify your Email"
+msgstr "Bitte verifiziere deine E-Mail-Adresse."
+
+#: .\helpers\email_helper.py:45 .\templates\baby_wishlist\thanks_you.html:15
+#: .\templates\baby_wishlist\thanks_you.html:51
+#: .\templates\emails\babywishlist_thankyou.html:12
+#: .\templates\emails\babywishlist_thankyou.html:26
+msgid "Thank you!"
+msgstr "Vielen Dank!"
+
+#: .\helpers\email_helper.py:67
+msgid "Reset your password."
+msgstr "Setze dein Passwort zurück."
+
+#: .\templates\baby_wishlist\contribute.html:42
+msgid "Contribute"
+msgstr "Bestätige"
+
+#: .\templates\baby_wishlist\contribute.html:67
+msgid "Go to product-site"
+msgstr "Zur Produktseite"
+
+#: .\templates\baby_wishlist\contribute.html:88
+#: .\templates\baby_wishlist\contribute.html:93
+msgid "Already Contributed: CHF"
+msgstr "Bereits beigetragen: CHF"
+
+#: .\templates\baby_wishlist\contribute.html:88
+#: .\templates\baby_wishlist\contribute.html:93
+msgid "from CHF"
+msgstr "von CHF"
+
+#: .\templates\baby_wishlist\contribute.html:103
+msgid "How much do you want to contribute to this product?"
+msgstr "Wie viel möchtest du zu diesem Produkt beitragen?"
+
+#: .\templates\baby_wishlist\contribute.html:117
+msgid "CHF"
+msgstr "CHF"
+
+#: .\templates\baby_wishlist\contribute.html:129
+msgid ""
+"You want to buy this product on your own? Click this box and we will not "
+"buying it ourselfe. But be sure, then this is only possible if you pay the "
+"full price."
+msgstr ""
+"Du möchtest dieses Produkt direkt selbst einkaufen? Klicke die box an und "
+"wir werden dir den Einkauf überlassen. Aber pass auf, das ist nur möglich, "
+"wenn du den vollen Betrag übernimmst."
+
+#: .\templates\baby_wishlist\contribute.html:143
+msgid "Write us about you and your contribution."
+msgstr "Schreibe etwas über dich und wieso du beitragen möchtest."
+
+#: .\templates\baby_wishlist\contribute.html:152
+msgid "Contribute now CHF"
+msgstr "Bestätige CHF"
+
+#: .\templates\baby_wishlist\list_contributions.html:7 .\templates\base.html:74
+msgid "My Contributions"
+msgstr "Meine Beiträge"
+
+#: .\templates\baby_wishlist\list_contributions.html:14
+msgid "Your contributions"
+msgstr "Deine Beiträge"
+
+#: .\templates\baby_wishlist\objects\action-buttons-list-contributions.html:4
+msgid "Open my contribution"
+msgstr "Öffne meinen Beitrag"
+
+#: .\templates\baby_wishlist\thanks_you.html:24
+msgid "Are you sure?"
+msgstr "Bist du sicher?"
+
+#: .\templates\baby_wishlist\thanks_you.html:28
+msgid ""
+"\n"
+"                        Do you really want to delete this contribution? "
+"Click Yes if you are sure. We will then\n"
+"                        substracted your contribution from the price-"
+"progress of the linked product.\n"
+"                    "
+msgstr ""
+"\n"
+"Möchtest du diesen Beitrag wirklich löschen? Drücke auf JA wenn du dir "
+"sicher bist. Wir werden danach deinen Beitrag vom Produkt abziehen."
+
+#: .\templates\baby_wishlist\thanks_you.html:34
+msgid "Close"
+msgstr "Schliessen"
+
+#: .\templates\baby_wishlist\thanks_you.html:35
+msgid "Yes"
+msgstr "Ja"
+
+#: .\templates\baby_wishlist\thanks_you.html:54
+msgid "You contributet CHF"
+msgstr "Dein Beitrag: CHF"
+
+#: .\templates\baby_wishlist\thanks_you.html:59
+#: .\templates\baby_wishlist\thanks_you.html:73
+msgid "Please send your contribution to the following bank-credentials."
+msgstr "Bitte sende deinen Beitrag an das folgende Bankkonto."
+
+#: .\templates\baby_wishlist\thanks_you.html:61
+#: .\templates\baby_wishlist\thanks_you.html:75
+msgid "Bankname:"
+msgstr "Bankname:"
+
+#: .\templates\baby_wishlist\thanks_you.html:63
+#: .\templates\baby_wishlist\thanks_you.html:77
+msgid "IBAN-Number:"
+msgstr "IBAN-Nummer:"
+
+#: .\templates\baby_wishlist\thanks_you.html:65
+#: .\templates\baby_wishlist\thanks_you.html:79
+msgid "To:"
+msgstr "Empfänger:"
+
+#: .\templates\baby_wishlist\thanks_you.html:88
+msgid ""
+"You did not want to contribute to this prodcut? No problem, just click the "
+"following link to delete your contribution"
+msgstr ""
+"Du wolltest nicht zu diesem Produkt beitragen? Kein Problem, klicke auf den "
+"folgenden Link um deinen Beitrag zu löschen."
+
+#: .\templates\baby_wishlist\thanks_you.html:91
+msgid "Delete contribution"
+msgstr "Beitrag löschen"
+
+#: .\templates\baby_wishlist\thanks_you.html:93
+msgid " Delete my contribution"
+msgstr " Meinen Beitrag löschen"
+
+#: .\templates\baby_wishlist\wishlist.html:18
+#: .\templates\baby_wishlist\wishlist.html:69
+msgid "Read more"
+msgstr "Mehr zeigen"
+
+#: .\templates\baby_wishlist\wishlist.html:22
+msgid "Read less"
+msgstr "Weniger zeigen"
+
+#: .\templates\baby_wishlist\wishlist.html:77
+msgid "from"
+msgstr "von"
+
+#: .\templates\baby_wishlist\wishlist.html:83
+msgid "Go to product"
+msgstr "Zum Produkt"
+
+#: .\templates\baby_wishlist\wishlist.html:87
+msgid "No product-link present"
+msgstr "Es ist kein Produkt-Link vorhanden"
+
+#: .\templates\baby_wishlist\wishlist.html:93
+msgid "Contribution finished!"
+msgstr "Voller Beitrag erreicht!"
+
+#: .\templates\baby_wishlist\wishlist.html:96
+msgid "I will contribute"
+msgstr "Ich möchte beitragen"
+
+#: .\templates\base.html:40
+msgid "Home"
+msgstr "Home"
+
+#: .\templates\base.html:42
+msgid "Baby Wishlis"
+msgstr "Baby Wunschliste"
+
+#: .\templates\base.html:54
+msgid "Adminpanel"
+msgstr "Adminpanel"
+
+#: .\templates\base.html:61
+msgid "Email-Visual-Test"
+msgstr "Email-Visual-Test"
+
+#: .\templates\base.html:69
+msgid "I want to confirm my email"
+msgstr "Ich möchte meine E-Mail Adresse bestätigen"
+
+#: .\templates\base.html:75
+msgid "Logout"
+msgstr "Ausloggen"
+
+#: .\templates\django_tables2\default_table_style.html:72
+msgid "previous"
+msgstr "zurück"
+
+#: .\templates\django_tables2\default_table_style.html:94
+msgid "next"
+msgstr "vorwärts"
+
+#: .\templates\emails\babywishlist_thankyou.html:31
+#: .\templates\emails\reset_password.html:6 .\templates\emails\signup.html:6
+msgid "Hello"
+msgstr "Hallo"
+
+#: .\templates\emails\babywishlist_thankyou.html:33
+msgid "Thank you very much for your contribution!"
+msgstr "Vielen Dank für deinen Beitrag!"
+
+#: .\templates\emails\babywishlist_thankyou.html:37
+msgid "You contributed the following:"
+msgstr "Du hast folgendes beigetragen:"
+
+#: .\templates\emails\babywishlist_thankyou.html:39
+msgid "Product: "
+msgstr "Produkt: "
+
+#: .\templates\emails\babywishlist_thankyou.html:41
+msgid "Amount: CHF "
+msgstr "Beitrag: CHF"
+
+#: .\templates\emails\babywishlist_thankyou.html:45
+msgid "Open the following link for more informations about the contribution:"
+msgstr ""
+"Über den folgenden Link erhälst du mehr Informationen zu deinem Beitrag:"
+
+#: .\templates\emails\babywishlist_thankyou.html:48
+msgid "Show my contribution"
+msgstr "Zeige meinen Beitrag"
+
+#: .\templates\emails\babywishlist_thankyou.html:52
+#: .\templates\emails\signup.html:11
+msgid "If the link is not working, copy and paste it in to your browser."
+msgstr ""
+"Sollte der Link nicht funktionieren, kopiere bitte den Link direkt in deinen "
+"Browser."
+
+#: .\templates\emails\reset_password.html:4
+msgid "Schori-Liem"
+msgstr "Schori-Liem"
+
+#: .\templates\emails\reset_password.html:7
+msgid "Please click on the link below to complete the reset of your password."
+msgstr ""
+"Bitte klicke auf den unten stehenden Link, um dein Passwort zurückzusetzen."
+
+#: .\templates\emails\reset_password.html:11
+msgid "If the link is not working, copy and paste it to your browser."
+msgstr ""
+"Sollte der Link nicht funktionieren, kopiere bitte den Link direkt in deinen "
+"Browser."
+
+#: .\templates\emails\reset_password.html:13
+msgid ""
+"If you didnt request to reset your password you can ignore this email and "
+"dont send the link to anyone."
+msgstr ""
+"Ignoriere diese E-mail, falls du nicht der Eigentümer des Accounts bist."
+
+#: .\templates\emails\signup.html:7
+msgid "Please click on the link below to confirm your email."
+msgstr ""
+"Bitte klicke auf den unten stehenden Link, um deine E-Mail Adresse zu "
+"bestätigen."
+
+#: .\templates\emails\signup.html:12
+msgid ""
+"Ignore this email if you dont have registered an account on our website."
+msgstr ""
+"Ignoriere diesee E-Mail, falls du bei uns keinen Account registriert hast."
+
+#: .\templates\registration\login.html:37
+#: .\templates\registration\signup.html:63
+#: .\templates\registration\signup.html:69
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: .\templates\registration\login.html:44
+#: .\templates\registration\signup.html:76
+#: .\templates\registration\signup.html:79
+msgid "Password"
+msgstr "Passwort"
+
+#: .\templates\registration\login.html:50
+msgid "Login failed."
+msgstr "Login fehlgeschlagen."
+
+#: .\templates\registration\login.html:53
+msgid "Login"
+msgstr "Login"
+
+#: .\templates\registration\login.html:56
+msgid "Forgot password"
+msgstr "Passwort vergessen"
+
+#: .\templates\registration\login.html:60
+msgid "I want to register"
+msgstr "Ich möchte mich registrieren"
+
+#: .\templates\registration\signup.html:37
+#: .\templates\registration\signup.html:43
+msgid "Firstname"
+msgstr "Vorname"
+
+#: .\templates\registration\signup.html:50
+#: .\templates\registration\signup.html:56
+msgid "Lastname"
+msgstr "Nachname"
+
+#: .\templates\registration\signup.html:84
+msgid ""
+"Must contain lower- and upercase character, a number and a miminum length of "
+"8."
+msgstr ""
+"Muss einen Klein-, einen Grossbuchstaben, eine Nummer und eine Mindestlänge "
+"von 8 Zeichen beinhalten."
+
+#: .\templates\registration\signup.html:89
+#: .\templates\registration\signup.html:92
+msgid "Repeat Password"
+msgstr "Passwort wiederholen"
+
+#: .\templates\registration\signup.html:99
+msgid "Register"
+msgstr "Registrieren"
+
+#: .\templates\registration\signup.html:104
+msgid "I am already registered."
+msgstr "Ich bin bereits registriert."
+
+#: .\templates\users\reset_password.html:23
+#: .\templates\users\reset_password.html:32
+msgid "Reset password"
+msgstr "Passwort zurücksetzen"
+
+#: .\templates\users\reset_password.html:34
+msgid "Please type in your accounts email address."
+msgstr "Bitte trage die E-Mail Adresse deines Accounts ein."
+
+#: .\templates\users\reset_password.html:35
+msgid "After that you will get an email from us to reset your password."
+msgstr ""
+"Danach wirst du von uns eine E-Mail erhalten, um dein Passwort zurücksetzen "
+"zu können."
+
+#: .\templates\users\reset_password.html:43
+msgid "Your email"
+msgstr "Deine E-Mail Adresse"
+
+#: .\templates\users\reset_password.html:45
+msgid "Submit"
+msgstr "Absenden"
+
+#: .\templates\users\reset_password.html:51
+msgid "Back to login"
+msgstr "Zurück zum Login"
+
+#: .\templates\users\reset_password_confirm.html:23
+msgid "New Password"
+msgstr "Neues Passwort"
+
+#: .\templates\users\reset_password_confirm.html:32
+msgid "Set new password"
+msgstr "Neues Passwort erstellen"
+
+#: .\templates\users\reset_password_confirm.html:41
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: .\templates\users\reset_password_confirm.html:47
+msgid ""
+"Must contain at least 8 characters, one lower, one upper and one numeric "
+"character"
+msgstr ""
+"Muss mindestens 8 Zeichen, einen Klein-, einen Grossbuchstaben und eine "
+"Nummer beinhalten."
+
+#: .\templates\users\reset_password_confirm.html:52
+msgid "Repeat your password"
+msgstr "Passwort wiederholen"
+
+#: .\templates\users\reset_password_confirm.html:58
+msgid "Save new password"
+msgstr "Neus Passwort speichern"
+
+#: .\users\forms.py:36
+msgid "Email already exist."
+msgstr "E-Mail Adresse existiert bereits."
+
+#: .\users\forms.py:41
+msgid "Password is not valid."
+msgstr "Das Passwort ist ungültig."
+
+#: .\users\forms.py:42
+msgid "Passwords are not equal."
+msgstr "Die Passwörter sind nicht identisch."
+
+#: .\users\managers.py:16
+msgid "The Email must be set"
+msgstr "Die E-Mail Adresse muss angegeben werden"
+
+#: .\users\managers.py:18
+msgid "The Password must be set"
+msgstr "Das Passwort muss angegeben werden"
+
+#: .\users\managers.py:34
+msgid "Superuser must have is_superuser=True."
+msgstr "Der Superuser muss mit is_superuser=True markiert werden."
+
+#: .\users\managers.py:36
+msgid "Superuser must have is_stuff=True."
+msgstr "Der Superuser muss mit is_staff=True markiert werden."
+
+#: .\users\models.py:16
+msgid "email address"
+msgstr "E-Mail Adresse"
+
+#: .\users\views.py:36
+msgid "We have send you an email to confirm your registration."
+msgstr "Wir haben dir eine E-Mail zur Bestätigung deiner Adresse gesendet."
+
+#: .\users\views.py:39
+msgid "Form is not valid. Please check your inputs."
+msgstr "Das Formular ist ungültig. Bitte prüfe deine Eingaben."
+
+#: .\users\views.py:51
+msgid "Your email is already confirmed."
+msgstr "Deine E-Mail Adresse ist bereits bestätigt."
+
+#: .\users\views.py:55
+msgid "We have send you an email to confirm your email-address."
+msgstr "Wir haben dir eine E-Mail zur Bestätigung deiner Adresse gesendet."
+
+#: .\users\views.py:75
+msgid "Your email is now confirmed. Thank you!"
+msgstr "Deine E-Mail Adresse ist jetzt bestätigt. Vielen Dank!"
+
+#: .\users\views.py:77 .\users\views.py:133
+msgid "Your link is invalid or expired."
+msgstr "Der Link ist ungütlig oder abgelaufen."
+
+#: .\users\views.py:95
+msgid "Yout got an email from us. Please check you spam-folder if needed."
+msgstr ""
+"Du hast von uns eine E-Mail erhalten. Bitte prüfe auch deinen Spam-Ordner."
+
+#: .\users\views.py:98
+msgid "There is no account registered with this email."
+msgstr "Es ist kein Account mit dieser E-Mail Adresse vorhanden."
+
+#: .\users\views.py:126
+msgid "Your password is successfully changed."
+msgstr "Dein Passwort wurde erfolgreich geändert."
+
+#: .\users\views.py:129
+msgid "Please check your inputs. The password is not valid."
+msgstr "Bitte prüfe deine Eingaben. Das Passwort ist ungültig."
