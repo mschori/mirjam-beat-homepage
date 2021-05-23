@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% autoescape off %}
+    Schori-Liem
+
+    New User registerd on schori-liem.ch
+    Firstname: {{ user.firstname }}
+    Lastname: {{ user.lastname }}
+    E-Mail: {{ user.email }}
+    Created-At: {{ user.date_joined }}
+
+    Best Regards,
+    Your Mail-Sender
+{% endautoescape %}

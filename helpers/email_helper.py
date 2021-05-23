@@ -29,6 +29,23 @@ def send_signup_mail(user: User, domain: str):
     email.send()
 
 
+def send_admin_info_for_signup(user: User):
+    """
+    Send Signup-Info to admin.
+    :param user: user-object
+    """
+    messages = render_to_string('emails/signup_admin_info.html', {
+        'user': user
+    })
+    email = EmailMessage(
+        'New user registered',
+        messages,
+        f'Schori-Liem <schori.liem@gmail.com>',
+        to=['michael.schori.89@gmail.com']
+    )
+    email.send()
+
+
 def send_babywish_thank_you_mail(user: User, domain: str, contribution: Contribution):
     """
     Send babywish-thank-you-Mail.

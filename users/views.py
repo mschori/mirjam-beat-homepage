@@ -33,6 +33,7 @@ def signup(request):
             user.save()
             domain = get_current_site(request).domain
             email_helper.send_signup_mail(user, domain)
+            email_helper.send_admin_info_for_signup(user)
             messages.success(request, _('We have send you an email to confirm your registration.'))
             return redirect('login')
         else:

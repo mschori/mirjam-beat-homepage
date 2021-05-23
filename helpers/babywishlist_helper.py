@@ -35,7 +35,7 @@ def calculate_remaining_price(product: Product):
     :return: calculated remaining price
     """
     remaining_price = product.price_full - product.price_progress
-    return remaining_price if remaining_price >= 0 else 0
+    return int(remaining_price) if remaining_price >= 0 else 0
 
 
 def add_contribution_to_product(product: Product, contribution: Contribution):

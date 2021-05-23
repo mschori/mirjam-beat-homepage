@@ -6,7 +6,7 @@
 
 {% block custom_js %}
     <script type="text/javascript">
-        let slider = $('#id_contribute');
+        let slider = $('#{{ form.contribute.id_for_label }}');
         let slider_text = $('#amount_text');
         let btn_text = $('#btn_amount');
         let is_selfbuy = $('#{{ form.is_selfbuy.id_for_label }}');
