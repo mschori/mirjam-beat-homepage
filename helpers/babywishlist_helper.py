@@ -25,7 +25,7 @@ def calculate_progress(product: Product):
     :param product: product-object
     :return: calculated progress
     """
-    return product.price_progress / product.price_full * 100
+    return int(product.price_progress / product.price_full * 100)
 
 
 def calculate_remaining_price(product: Product):
