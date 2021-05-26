@@ -28,6 +28,7 @@ class Contribution(models.Model):
     comment = models.TextField(null=False)
     product = models.ForeignKey(Product, null=False, on_delete=models.CASCADE)
     user = models.ForeignKey(User, null=False, on_delete=models.RESTRICT)
+    is_self_buy = models.BooleanField(null=False, default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
