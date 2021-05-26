@@ -51,7 +51,8 @@ def contribute_to_product(request, product_id):
                 amount=form.cleaned_data['contribute'],
                 comment=form.cleaned_data['comment'],
                 product=product,
-                user=user
+                user=user,
+                is_self_buy=form.cleaned_data['is_selfbuy']
             )
             babywishlist_helper.add_contribution_to_product(product, contribution)
             messages.success(request, _('Contribution confirmed.'))

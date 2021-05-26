@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-23 11:18+0200\n"
+"POT-Creation-Date: 2021-05-26 22:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Du musst den gesamten Betrag beitragen, wenn du das Produkt selbst einkaufen "
 "möchtest."
 
-#: .\baby_wishlist\tables.py:14 .\baby_wishlist\tables.py:34
+#: .\baby_wishlist\tables.py:14 .\baby_wishlist\tables.py:36
 msgid "Product"
 msgstr "Produkt"
 
@@ -41,14 +41,22 @@ msgstr "Produkt"
 msgid "Comment"
 msgstr "Kommentar"
 
-#: .\baby_wishlist\tables.py:16 .\baby_wishlist\tables.py:35
+#: .\baby_wishlist\tables.py:16 .\baby_wishlist\tables.py:37
 #: .\templates\baby_wishlist\contribute.html:112
 msgid "Amount"
 msgstr "Beitrag"
 
-#: .\baby_wishlist\tables.py:17 .\baby_wishlist\tables.py:36
+#: .\baby_wishlist\tables.py:17
+msgid "You buy it"
+msgstr "Du kaufst ein"
+
+#: .\baby_wishlist\tables.py:19 .\baby_wishlist\tables.py:40
 msgid "Actions"
 msgstr "Aktionen"
+
+#: .\baby_wishlist\tables.py:38
+msgid "Selfbuy"
+msgstr "Selbstkauf"
 
 #: .\baby_wishlist\views.py:38
 msgid "Product with this id does not exist!"
@@ -64,38 +72,38 @@ msgstr ""
 msgid "You cant contribute more than the remaining price."
 msgstr "Du kannst nicht mehr beitragen als notwendig ist."
 
-#: .\baby_wishlist\views.py:57
+#: .\baby_wishlist\views.py:58
 msgid "Contribution confirmed."
 msgstr "Deinen Beitrag haben wir vermerkt."
 
-#: .\baby_wishlist\views.py:76
+#: .\baby_wishlist\views.py:78
 msgid "This contribution does not belong to you."
 msgstr "Dieser Beitrag gehört nicht zu deinem Account."
 
-#: .\baby_wishlist\views.py:79 .\baby_wishlist\views.py:103
+#: .\baby_wishlist\views.py:81 .\baby_wishlist\views.py:105
 msgid "No Contribution with this ID found."
 msgstr "Es wurde kein Beitrag mit dieser ID gefunden."
 
-#: .\baby_wishlist\views.py:100
+#: .\baby_wishlist\views.py:102
 msgid "You can only delete your own contributions."
 msgstr "Du kannst nur deine eigenen Beiträge löschen."
 
-#: .\baby_wishlist\views.py:106
+#: .\baby_wishlist\views.py:108
 msgid "Successfully deleted your contribution."
 msgstr "Dein Beitrag wurde erfolgreich gelöscht."
 
-#: .\helpers\email_helper.py:24
+#: .\helpers\email_helper.py:25
 msgid "Verify your Email"
 msgstr "Bitte verifiziere deine E-Mail-Adresse."
 
-#: .\helpers\email_helper.py:45 .\templates\baby_wishlist\thanks_you.html:15
+#: .\helpers\email_helper.py:63 .\templates\baby_wishlist\thanks_you.html:15
 #: .\templates\baby_wishlist\thanks_you.html:51
 #: .\templates\emails\babywishlist_thankyou.html:12
 #: .\templates\emails\babywishlist_thankyou.html:26
 msgid "Thank you!"
 msgstr "Vielen Dank!"
 
-#: .\helpers\email_helper.py:67
+#: .\helpers\email_helper.py:102
 msgid "Reset your password."
 msgstr "Setze dein Passwort zurück."
 
@@ -498,43 +506,43 @@ msgstr "Der Superuser muss mit is_staff=True markiert werden."
 msgid "email address"
 msgstr "E-Mail Adresse"
 
-#: .\users\views.py:36
+#: .\users\views.py:37
 msgid "We have send you an email to confirm your registration."
 msgstr "Wir haben dir eine E-Mail zur Bestätigung deiner Adresse gesendet."
 
-#: .\users\views.py:39
+#: .\users\views.py:40
 msgid "Form is not valid. Please check your inputs."
 msgstr "Das Formular ist ungültig. Bitte prüfe deine Eingaben."
 
-#: .\users\views.py:51
+#: .\users\views.py:52
 msgid "Your email is already confirmed."
 msgstr "Deine E-Mail Adresse ist bereits bestätigt."
 
-#: .\users\views.py:55
+#: .\users\views.py:56
 msgid "We have send you an email to confirm your email-address."
 msgstr "Wir haben dir eine E-Mail zur Bestätigung deiner Adresse gesendet."
 
-#: .\users\views.py:75
+#: .\users\views.py:76
 msgid "Your email is now confirmed. Thank you!"
 msgstr "Deine E-Mail Adresse ist jetzt bestätigt. Vielen Dank!"
 
-#: .\users\views.py:77 .\users\views.py:133
+#: .\users\views.py:78 .\users\views.py:134
 msgid "Your link is invalid or expired."
 msgstr "Der Link ist ungütlig oder abgelaufen."
 
-#: .\users\views.py:95
+#: .\users\views.py:96
 msgid "Yout got an email from us. Please check you spam-folder if needed."
 msgstr ""
 "Du hast von uns eine E-Mail erhalten. Bitte prüfe auch deinen Spam-Ordner."
 
-#: .\users\views.py:98
+#: .\users\views.py:99
 msgid "There is no account registered with this email."
 msgstr "Es ist kein Account mit dieser E-Mail Adresse vorhanden."
 
-#: .\users\views.py:126
+#: .\users\views.py:127
 msgid "Your password is successfully changed."
 msgstr "Dein Passwort wurde erfolgreich geändert."
 
-#: .\users\views.py:129
+#: .\users\views.py:130
 msgid "Please check your inputs. The password is not valid."
 msgstr "Bitte prüfe deine Eingaben. Das Passwort ist ungültig."
