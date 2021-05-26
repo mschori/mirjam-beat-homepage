@@ -57,6 +57,7 @@ def contribute_to_product(request, product_id):
             messages.success(request, _('Contribution confirmed.'))
             domain = get_current_site(request).domain
             email_helper.send_babywish_thank_you_mail(user, domain, contribution)
+            email_helper.send_admin_info_for_contribution(contribution)
             return redirect('babywishlist_thank-you-page', contribution_id=contribution.id)
     return render(request, 'baby_wishlist/contribute.html', {'form': form, 'product': product})
 

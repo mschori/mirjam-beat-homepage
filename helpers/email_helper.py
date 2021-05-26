@@ -6,6 +6,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from users.tokens import email_confirm_token, reset_password_token
 from baby_wishlist.models import Contribution
+import os
 
 
 def send_signup_mail(user: User, domain: str):
@@ -41,7 +42,7 @@ def send_admin_info_for_signup(user: User):
         'New user registered',
         messages,
         f'Schori-Liem <schori.liem@gmail.com>',
-        to=['michael.schori.89@gmail.com']
+        to=[os.environ.get('ADMIN_EMAIL_RECEIVER')]
     )
     email.send()
 
@@ -65,6 +66,23 @@ def send_babywish_thank_you_mail(user: User, domain: str, contribution: Contribu
         to=[user.email]
     )
     email.content_subtype = 'html'
+    email.send()
+
+
+def send_admin_info_for_contribution(contribution: Contribution):
+    """
+    Send contribution-info to admin.
+    :param contribution: contribution-object
+    """
+    message = render_to_string('emails/contribution_admin_info.html', {
+        'contribution': contribution
+    })
+    email = EmailMessage(
+        'New Contribution on schori-liem.ch',
+        message,
+        f'Schori-Liem <schori.liem@gmail.com>',
+        to=[os.environ.get('ADMIN_EMAIL_RECEIVER')]
+    )
     email.send()
 
 

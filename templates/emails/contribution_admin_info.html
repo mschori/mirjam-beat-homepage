@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% autoescape off %}
+    Schori-Liem
+
+    New contribution received.
+    Contribution-Object: {{ contribution.product.title }}
+    Contribution-Comment: {{ contribution.comment }}
+    Amount: {{ contribution.amount }}
+    User: {{ contribution.user }}
+
+    Best Regards,
+    Your Mail-Sender
+{% endautoescape %}
