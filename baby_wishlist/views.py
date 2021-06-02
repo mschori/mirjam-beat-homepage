@@ -57,8 +57,8 @@ def contribute_to_product(request, product_id):
             babywishlist_helper.add_contribution_to_product(product, contribution)
             messages.success(request, _('Contribution confirmed.'))
             domain = get_current_site(request).domain
-            email_helper.send_babywish_thank_you_mail(user, domain, contribution)
-            email_helper.send_admin_info_for_contribution(contribution)
+            email_helper.send_babywishlist_thank_you_mail(user, domain, contribution)
+            email_helper.send_admin_info_for_babywishlist_contribution(contribution)
             return redirect('babywishlist_thank-you-page', contribution_id=contribution.id)
     return render(request, 'baby_wishlist/contribute.html', {'form': form, 'product': product})
 
@@ -105,6 +105,7 @@ def delete_contribution(request, contribution_id):
         messages.error(request, _('No Contribution with this ID found.'))
         return redirect('home')
     babywishlist_helper.delete_contribution(contribution)
+    email_helper.send_admin_info_for_babywishlist_contribution_delete(contribution)
     messages.success(request, _('Successfully deleted your contribution.'))
     return redirect('baby_wishlist')
 

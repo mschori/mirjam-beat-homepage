@@ -21,10 +21,11 @@ def send_signup_mail(user: User, domain: str):
         'uid': urlsafe_base64_encode(force_bytes(user.pk)),
         'token': email_confirm_token.make_token(user)
     })
+    from_mail = f'Schori-Liem <{os.environ.get("SCHORI_LIEM_EMAIL")}>'
     email = EmailMessage(
         _('Verify your Email'),
         message,
-        f'Schori-Liem <schori.liem@gmail.com>',
+        from_mail,
         to=[user.email]
     )
     email.send()
@@ -38,16 +39,17 @@ def send_admin_info_for_signup(user: User):
     messages = render_to_string('emails/signup_admin_info.html', {
         'user': user
     })
+    from_mail = f'Schori-Liem <{os.environ.get("SCHORI_LIEM_EMAIL")}>'
     email = EmailMessage(
         'New user registered',
         messages,
-        f'Schori-Liem <schori.liem@gmail.com>',
+        from_mail,
         to=[os.environ.get('ADMIN_EMAIL_RECEIVER')]
     )
     email.send()
 
 
-def send_babywish_thank_you_mail(user: User, domain: str, contribution: Contribution):
+def send_babywishlist_thank_you_mail(user: User, domain: str, contribution: Contribution):
     """
     Send babywish-thank-you-Mail.
     :param user: user-object
@@ -59,28 +61,48 @@ def send_babywish_thank_you_mail(user: User, domain: str, contribution: Contribu
         'domain': domain,
         'contribution': contribution
     })
+    from_mail = f'Babywishlist Schori-Liem <{os.environ.get("BABYWISHLIST_EMAIL")}>'
     email = EmailMessage(
         _('Thank you!'),
         message,
-        f'Schori-Liem <schori.liem@gmail.com>',
+        from_mail,
         to=[user.email]
     )
     email.content_subtype = 'html'
     email.send()
 
 
-def send_admin_info_for_contribution(contribution: Contribution):
+def send_admin_info_for_babywishlist_contribution(contribution: Contribution):
     """
     Send contribution-info to admin.
     :param contribution: contribution-object
     """
-    message = render_to_string('emails/contribution_admin_info.html', {
+    message = render_to_string('emails/babywishlist_contribution_admin_info.html', {
         'contribution': contribution
     })
+    from_mail = f'Babywishlist Schori-Liem <{os.environ.get("BABYWISHLIST_EMAIL")}>'
     email = EmailMessage(
         'New Contribution on schori-liem.ch',
         message,
-        f'Schori-Liem <schori.liem@gmail.com>',
+        from_mail,
+        to=[os.environ.get('ADMIN_EMAIL_RECEIVER')]
+    )
+    email.send()
+
+
+def send_admin_info_for_babywishlist_contribution_delete(contribution: Contribution):
+    """
+    Send contribution-info to admin when contribution is deleted.
+    :param contribution: contribution-object
+    """
+    message = render_to_string('emails/babywishlist_contribution_delete_admin_info.html', {
+        'contribution': contribution
+    })
+    from_mail = f'Babywishlist Schori-Liem <{os.environ.get("BABYWISHLIST_EMAIL")}>'
+    email = EmailMessage(
+        'Contribution deleted!',
+        message,
+        from_mail,
         to=[os.environ.get('ADMIN_EMAIL_RECEIVER')]
     )
     email.send()
@@ -98,10 +120,11 @@ def send_reset_password_mail(user: User, domain: str):
         'uid': urlsafe_base64_encode(force_bytes(user.id)),
         'token': reset_password_token.make_token(user)
     })
+    from_mail = f'Schori-Liem <{os.environ.get("SCHORI_LIEM_EMAIL")}>'
     email = EmailMessage(
         _('Reset your password.'),
         message,
-        f'Schori-Liem <schori.liem@gmail.com>',
+        from_mail,
         to=[user.email]
     )
     email.send()
