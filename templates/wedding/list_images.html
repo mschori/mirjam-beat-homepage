@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block head_title %}
+    {% trans 'Wedding-Images' %}
+{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+          media="screen">
+{% endblock %}
+
+{% block custom_js %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function () {
+
+                $(this).addClass('transition');
+            }, function () {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+
+            {% for image in images %}
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a href="{{ image.url }}" class="fancybox" rel="ligthbox">
+                        <img src="{{ image.url }}" class="zoom img-fluid " alt="">
+                    </a>
+                </div>
+            {% endfor %}
+
+            {% for video in videos %}
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a href="{{ video.url }}" class="fancybox" rel="ligthbox" data-fancybox-type="iframe">
+                        <img src="{{ video.image_url }}" class="zoom img-fluid " alt="">
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

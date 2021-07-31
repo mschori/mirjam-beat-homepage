@@ -2,13 +2,11 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-26 22:03+0200\n"
+"POT-Creation-Date: 2021-07-31 17:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,22 +86,22 @@ msgstr "Es wurde kein Beitrag mit dieser ID gefunden."
 msgid "You can only delete your own contributions."
 msgstr "Du kannst nur deine eigenen Beiträge löschen."
 
-#: .\baby_wishlist\views.py:108
+#: .\baby_wishlist\views.py:109
 msgid "Successfully deleted your contribution."
 msgstr "Dein Beitrag wurde erfolgreich gelöscht."
 
-#: .\helpers\email_helper.py:25
+#: .\helpers\email_helper.py:26
 msgid "Verify your Email"
 msgstr "Bitte verifiziere deine E-Mail-Adresse."
 
-#: .\helpers\email_helper.py:63 .\templates\baby_wishlist\thanks_you.html:15
+#: .\helpers\email_helper.py:66 .\templates\baby_wishlist\thanks_you.html:15
 #: .\templates\baby_wishlist\thanks_you.html:51
 #: .\templates\emails\babywishlist_thankyou.html:12
 #: .\templates\emails\babywishlist_thankyou.html:26
 msgid "Thank you!"
 msgstr "Vielen Dank!"
 
-#: .\helpers\email_helper.py:102
+#: .\helpers\email_helper.py:125
 msgid "Reset your password."
 msgstr "Setze dein Passwort zurück."
 
@@ -151,7 +149,7 @@ msgstr "Schreibe etwas über dich und wieso du beitragen möchtest."
 msgid "Contribute now CHF"
 msgstr "Bestätige CHF"
 
-#: .\templates\baby_wishlist\list_contributions.html:7 .\templates\base.html:74
+#: .\templates\baby_wishlist\list_contributions.html:7 .\templates\base.html:76
 msgid "My Contributions"
 msgstr "Meine Beiträge"
 
@@ -265,19 +263,23 @@ msgstr "Home"
 msgid "Baby Wishlist"
 msgstr "Baby Wunschliste"
 
-#: .\templates\base.html:54
+#: .\templates\base.html:44
+msgid "Wedding"
+msgstr "Hochzeit"
+
+#: .\templates\base.html:56
 msgid "Adminpanel"
 msgstr "Adminpanel"
 
-#: .\templates\base.html:61
+#: .\templates\base.html:63
 msgid "Email-Visual-Test"
 msgstr "Email-Visual-Test"
 
-#: .\templates\base.html:69
+#: .\templates\base.html:71
 msgid "I want to confirm my email"
 msgstr "Ich möchte meine E-Mail Adresse bestätigen"
 
-#: .\templates\base.html:75
+#: .\templates\base.html:77
 msgid "Logout"
 msgstr "Ausloggen"
 
@@ -473,6 +475,10 @@ msgstr "Passwort wiederholen"
 #: .\templates\users\reset_password_confirm.html:58
 msgid "Save new password"
 msgstr "Neus Passwort speichern"
+
+#: .\templates\wedding\list_images.html:5
+msgid "Wedding-Images"
+msgstr "Hochzeit"
 
 #: .\users\forms.py:36
 msgid "Email already exist."

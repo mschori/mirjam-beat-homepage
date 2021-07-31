@@ -40,6 +40,8 @@
                 {% endif %} " aria-current="page" href="{% url 'home' %}">{% trans 'Home' %}</a>
                 <a class="nav-link {% if request.resolver_match.url_name == 'baby_wishlist' %} text-secondary
                 {% endif %} " href="{% url 'baby_wishlist' %}">{% trans 'Baby Wishlist' %}</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'wedding_list_images' %} text-secondary
+                {% endif %} " href="{% url 'wedding_list_images' %}">{% trans 'Wedding' %}</a>
             </div>
 
             <ul class="navbar-nav d-flex">

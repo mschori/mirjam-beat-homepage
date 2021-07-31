@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'global',
     'users',
     'baby_wishlist',
+    'wedding',
 ]
 
 MIDDLEWARE = [
