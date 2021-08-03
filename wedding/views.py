@@ -11,6 +11,6 @@ def list_images(request):
     :return: rendered list of images and videos
     """
     return render(request, 'wedding/list_images.html', {
-        'images': WeddingImage.objects.all(),
-        'videos': WeddingVideo.objects.all()
+        'images': WeddingImage.objects.all().order_by('pk'),
+        'videos': WeddingVideo.objects.all().order_by('pk')
     })
