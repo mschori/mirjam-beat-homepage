@@ -71,7 +71,7 @@
 <div class="alert-float-center-bottom">
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-{% ifequal message.tags 'error' %}danger{% else %}{{ message.tags }}{% endifequal %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}
             alert-dismissible fade show" role="alert">
                 {% if message.tags == 'success' %}
                     <i class="fas fa-check-circle"></i>

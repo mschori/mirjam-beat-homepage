@@ -1,4 +1,4 @@
-"""schori_liem URL Configuration
+"""nicole_christoph_hp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -24,5 +24,4 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', views.home, name='home'),
     path('baby-wishlist/', include('baby_wishlist.urls')),
-    path('wedding/', include('wedding.urls')),
 ]

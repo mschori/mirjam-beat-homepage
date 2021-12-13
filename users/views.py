@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.sites.shortcuts import get_current_site
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 from django.utils.translation import gettext as _
 from users.tokens import email_confirm_token
@@ -66,7 +66,7 @@ def confirm_email(request, uidb64, token):
     :return: return to home
     """
     try:
-        user_id = force_text(urlsafe_base64_decode(uidb64))
+        user_id = force_str(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=user_id)
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
@@ -115,7 +115,7 @@ def reset_password_confirm(request, uidb64, token):
                 redirect to home
     """
     try:
-        user_id = force_text(urlsafe_base64_decode(uidb64))
+        user_id = force_str(urlsafe_base64_decode(uidb64))
         user = User.objects.get(id=user_id)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None

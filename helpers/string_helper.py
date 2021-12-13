@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy
+from django.utils.translation import gettext_lazy
 
 
 def cust_string_end(string: str, max_length: int, with_ellipsis: bool = False) -> str:
@@ -33,4 +33,4 @@ def translate_lazy_string(string: str) -> str:
     :param string: string to translate
     :return: translated string
     """
-    return ugettext_lazy(string)
+    return gettext_lazy(string)
