@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn nicole_christoph_hp.wsgi
+web: gunicorn mirjam_beat_hp.wsgi

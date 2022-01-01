@@ -21,7 +21,7 @@ def send_signup_mail(user: User, domain: str):
         'uid': urlsafe_base64_encode(force_bytes(user.pk)),
         'token': email_confirm_token.make_token(user)
     })
-    from_mail = f'Schori-Liem <{os.environ.get("SCHORI_LIEM_EMAIL")}>'
+    from_mail = f'Beat und Mirjam Mathis <{os.environ.get("MATHIS_EMAIL")}>'
     email = EmailMessage(
         _('Verify your Email'),
         message,
@@ -39,7 +39,7 @@ def send_admin_info_for_signup(user: User):
     messages = render_to_string('emails/signup_admin_info.html', {
         'user': user
     })
-    from_mail = f'Schori-Liem <{os.environ.get("SCHORI_LIEM_EMAIL")}>'
+    from_mail = f'Beat und Mirjam Mathis <{os.environ.get("MATHIS_EMAIL")}>'
     email = EmailMessage(
         'New user registered',
         messages,
@@ -61,7 +61,7 @@ def send_wishlist_thank_you_mail(user: User, domain: str, contribution: Contribu
         'domain': domain,
         'contribution': contribution
     })
-    from_mail = f'Wishlist Schori-Liem <{os.environ.get("WISHLIST_EMAIL")}>'
+    from_mail = f'Wishlist Mathis <{os.environ.get("WISHLIST_EMAIL")}>'
     email = EmailMessage(
         _('Thank you!'),
         message,
@@ -80,7 +80,7 @@ def send_admin_info_for_wishlist_contribution(contribution: Contribution):
     message = render_to_string('emails/wishlist_contribution_admin_info.html', {
         'contribution': contribution
     })
-    from_mail = f'Wishlist Schori-Liem <{os.environ.get("WISHLIST_EMAIL")}>'
+    from_mail = f'Wishlist Mathis <{os.environ.get("WISHLIST_EMAIL")}>'
     email = EmailMessage(
         'New Contribution on schori-liem.ch',
         message,
@@ -98,7 +98,7 @@ def send_admin_info_for_wishlist_contribution_delete(contribution: Contribution)
     message = render_to_string('emails/wishlist_contribution_delete_admin_info.html', {
         'contribution': contribution
     })
-    from_mail = f'Wishlist Schori-Liem <{os.environ.get("WISHLIST_EMAIL")}>'
+    from_mail = f'Wishlist Mathis <{os.environ.get("WISHLIST_EMAIL")}>'
     email = EmailMessage(
         'Contribution deleted!',
         message,
@@ -120,7 +120,7 @@ def send_reset_password_mail(user: User, domain: str):
         'uid': urlsafe_base64_encode(force_bytes(user.id)),
         'token': reset_password_token.make_token(user)
     })
-    from_mail = f'Schori-Liem <{os.environ.get("SCHORI_LIEM_EMAIL")}>'
+    from_mail = f'Beat und Mirjam Mathis <{os.environ.get("MATHIS_EMAIL")}>'
     email = EmailMessage(
         _('Reset your password.'),
         message,
