@@ -12,7 +12,7 @@ def calculate_progress(product: Product):
     :param product: product-object
     :return: calculated progress
     """
-    return babywishlist_helper.calculate_progress(product)
+    return wishlist_helper.calculate_progress(product)
 
 
 def is_progress_price_null(product: Product):
@@ -22,7 +22,7 @@ def is_progress_price_null(product: Product):
     :param product: product to check
     :return: boolean
     """
-    return babywishlist_helper.is_progress_price_null(product)
+    return wishlist_helper.is_progress_price_null(product)
 
 
 def calculate_remaining_price(product: Product):
@@ -32,7 +32,7 @@ def calculate_remaining_price(product: Product):
     :param product: product-object
     :return: calculated remaining price
     """
-    return babywishlist_helper.calculate_remaining_price(product)
+    return wishlist_helper.calculate_remaining_price(product)
 
 
 def get_half_remaining_price(product: Product):
@@ -42,7 +42,7 @@ def get_half_remaining_price(product: Product):
     :param product: product-object
     :return: half of remaining price
     """
-    return babywishlist_helper.calculate_remaining_price(product) / 2
+    return wishlist_helper.calculate_remaining_price(product) / 2
 
 
 register.filter(calculate_progress)

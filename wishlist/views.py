@@ -37,14 +37,14 @@ def contribute_to_product(request, product_id):
     except Product.DoesNotExist:
         messages.error(request, _('Product with this id does not exist!'))
         return redirect('wishlist')
-    if babywishlist_helper.is_product_price_progress_finished(product):
+    if wishlist_helper.is_product_price_progress_finished(product):
         messages.warning(request, _('Product is already fully paid. Please choose an other product.'))
         return redirect('wishlist')
     form = ContributeForm(product=product)
     if request.method == 'POST':
         form = ContributeForm(request.POST, product=product)
         if form.is_valid():
-            if form.cleaned_data['contribute'] > babywishlist_helper.calculate_remaining_price(product):
+            if form.cleaned_data['contribute'] > wishlist_helper.calculate_remaining_price(product):
                 messages.warning(request, _('You cant contribute more than the remaining price.'))
                 return redirect('wishlist')
             contribution = Contribution.objects.create(
@@ -54,7 +54,7 @@ def contribute_to_product(request, product_id):
                 user=user,
                 is_self_buy=form.cleaned_data['is_selfbuy']
             )
-            babywishlist_helper.add_contribution_to_product(product, contribution)
+            wishlist_helper.add_contribution_to_product(product, contribution)
             messages.success(request, _('Contribution confirmed.'))
             domain = get_current_site(request).domain
             email_helper.send_wishlist_thank_you_mail(user, domain, contribution)
@@ -104,7 +104,7 @@ def delete_contribution(request, contribution_id):
     except Contribution.DoesNotExist:
         messages.error(request, _('No Contribution with this ID found.'))
         return redirect('home')
-    babywishlist_helper.delete_contribution(contribution)
+    wishlist_helper.delete_contribution(contribution)
     email_helper.send_admin_info_for_wishlist_contribution_delete(contribution)
     messages.success(request, _('Successfully deleted your contribution.'))
     return redirect('wishlist')

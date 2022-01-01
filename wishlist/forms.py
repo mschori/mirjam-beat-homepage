@@ -18,7 +18,7 @@ class ContributeForm(forms.Form):
 
     def clean_is_selfbuy(self):
         if self.cleaned_data['is_selfbuy']:
-            if not babywishlist_helper.is_progress_price_null(self.product):
+            if not wishlist_helper.is_progress_price_null(self.product):
                 raise ValidationError(
                     _('Ups. Somebody already contributed to this product. Selfbuy is not possible.'),
                     code='invalid'
