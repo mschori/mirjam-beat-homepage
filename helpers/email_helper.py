@@ -5,7 +5,7 @@ from django.core.mail import EmailMessage
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from users.tokens import email_confirm_token, reset_password_token
-from baby_wishlist.models import Contribution
+from wishlist.models import Contribution
 import os
 
 

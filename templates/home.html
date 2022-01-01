@@ -8,14 +8,14 @@
 {% endblock %}
 
 {% block head_title %}
-    Home
+    {% trans 'Home' %}
 {% endblock %}
 
 {% block content %}
     <div class="bg-home-title p-3 d-lg-none">
         <div class="container">
             <div class="row text-center">
-                <p class="display-4 mb-0 text-white">Family Schori-Liem</p>
+                <p class="display-4 mb-0 text-white">{% trans 'Homepage-Title' %}</p>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="bg-home-title p-3 d-none d-lg-block">
         <div class="container">
             <div class="row text-center">
-                <p class="home-title text-white">Family Schori-Liem</p>
+                <p class="home-title text-white">{% trans 'Homepage-Title' %}</p>
             </div>
         </div>
     </div>
@@ -34,15 +34,16 @@
     <div class="container mb-3">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-6">
-                    <p>Liebe Familie, liebe Freunde</p>
-                    <p>Um den 10. November 2021 herum ist es soweit! Wir werden zum ersten Mal Eltern und freuen uns riesig
-                    über ein kleines Mädchen. Wir haben diese Seite erstellt, um einen Überblick zu erhalten, was wir
-                    bereits gekauft haben und was wir alles noch für unser Bébéli Yuna benötigen. Zudem soll die Seite
-                    eine Orientierung für euch sein, damit ihr seht, was wir noch brauchen und was nicht.</p>
+                <p>{% trans 'Dear family, dear friends' %}</p>
+                <p>
+                    {% blocktranslate %}
+                        Welcome-Text for this homepage...
+                    {% endblocktranslate %}
+                </p>
             </div>
             <div class="col-12 col-lg-4 text-center">
                 <div class="d-lg-none mt-3"></div>
-                <img src="{% static 'images/people/schori-liem-poeple.jpeg' %}" alt=""
+                <img src="{% static 'images/people/Sample_User_Icon.png' %}" alt=""
                      class="img-fluid">
             </div>
         </div>

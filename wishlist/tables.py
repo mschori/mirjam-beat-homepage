@@ -17,7 +17,7 @@ class ContributionTable(tables.Table):
     is_self_buy = tables.BooleanColumn(verbose_name=string_helper.translate_lazy_string(_('You buy it')),
                                        attrs={'td': {'class': 'text-center'}})
     actions = tables.TemplateColumn(verbose_name=string_helper.translate_lazy_string(_('Actions')), orderable=False,
-                                    template_name='baby_wishlist/objects/action-buttons-list-contributions.html')
+                                    template_name='wishlist/objects/action-buttons-list-contributions.html')
 
     def render_comment(self, value, record):
         return format_html('<span data-bs-toggle="tooltip" title="{}">{}</span>', value,
@@ -38,7 +38,7 @@ class ContributionTableShort(tables.Table):
     is_self_buy = tables.BooleanColumn(verbose_name=string_helper.translate_lazy_string(_('Selfbuy')),
                                        attrs={'td': {'class': 'text-center'}})
     actions = tables.TemplateColumn(verbose_name=string_helper.translate_lazy_string(_('Actions')), orderable=False,
-                                    template_name='baby_wishlist/objects/action-buttons-list-contributions.html')
+                                    template_name='wishlist/objects/action-buttons-list-contributions.html')
 
     def render_product(self, value, record):
         return format_html('<span data-bs-toggle="tooltip" title="{}">{}</span>', value,

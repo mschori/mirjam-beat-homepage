@@ -23,5 +23,5 @@ urlpatterns = [
     path('email-visual-test', views.email_visual_test, name='email-visual-test'),
     path('users/', include('users.urls')),
     path('', views.home, name='home'),
-    path('baby-wishlist/', include('baby_wishlist.urls')),
+    path('wishlist/', include('wishlist.urls')),
 ]

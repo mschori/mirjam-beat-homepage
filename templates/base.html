@@ -28,7 +28,7 @@
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'images/logos/Schori-Liem Logo Emblem.png' %}" alt="" width="30" height="30"
                  class="d-inline-block align-text-top">
-            schori-liem
+            {% trans 'Logo-Name' %}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,8 +38,8 @@
             <div class="navbar-nav">
                 <a class="nav-link {% if request.resolver_match.url_name == 'home' %} text-secondary
                 {% endif %} " aria-current="page" href="{% url 'home' %}">{% trans 'Home' %}</a>
-                <a class="nav-link {% if request.resolver_match.url_name == 'baby_wishlist' %} text-secondary
-                {% endif %} " href="{% url 'baby_wishlist' %}">{% trans 'Baby Wishlist' %}</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %} text-secondary
+                {% endif %} " href="{% url 'wishlist' %}">{% trans 'Wishlist' %}</a>
             </div>
 
             <ul class="navbar-nav d-flex">

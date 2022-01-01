@@ -1,4 +1,4 @@
-from baby_wishlist.models import Product, Contribution
+from wishlist.models import Product, Contribution
 
 
 def is_product_price_progress_finished(product: Product):

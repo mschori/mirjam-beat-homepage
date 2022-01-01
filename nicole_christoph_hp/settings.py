@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'global',
     'users',
-    'baby_wishlist',
+    'wishlist',
 ]
 
 MIDDLEWARE = [
