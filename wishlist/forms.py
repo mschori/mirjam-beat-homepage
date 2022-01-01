@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
-from helpers import babywishlist_helper
+from helpers import wishlist_helper
 
 
 class ContributeForm(forms.Form):

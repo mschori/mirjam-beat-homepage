@@ -15,9 +15,7 @@
     <div class="container mt-3" style="padding-left: 2em; padding-right: 2em; margin-top: 3em;">
         <div class="justify-content-center" style="justify-content: center;">
             <div class="text-center" style="text-align: center;">
-                {#            <img src="https://www.jodiebrenton.com.au/wp-content/uploads/2019/09/family.jpg" alt=""#}
-                {#                 class="img-fluid">#}
-                <img src="http://www.schori-liem.ch{% static 'images/logos/Schori-Liem Logo.png' %}" class="img-fluid"
+                <img src="http://www.schori-liem.ch{% static 'images/logos/Logo Emblem.png' %}" class="img-fluid"
                      alt="">
             </div>
         </div>
@@ -44,7 +42,7 @@
             <p>
                 {% trans 'Open the following link for more informations about the contribution:' %}
                 <br>
-                <a href="http://{{ domain }}{% url 'babywishlist_thank-you-page' contribution.id %}"
+                <a href="http://{{ domain }}{% url 'wishlist_thank-you-page' contribution.id %}"
                    style="color: #a61919;">{% trans 'Show my contribution' %}</a>
             </p>
 

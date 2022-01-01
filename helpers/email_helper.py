@@ -49,19 +49,19 @@ def send_admin_info_for_signup(user: User):
     email.send()
 
 
-def send_babywishlist_thank_you_mail(user: User, domain: str, contribution: Contribution):
+def send_wishlist_thank_you_mail(user: User, domain: str, contribution: Contribution):
     """
-    Send babywish-thank-you-Mail.
+    Send wishlist-thank-you-Mail.
     :param user: user-object
     :param domain: domain from request
     :param contribution: contribution-object
     """
-    message = render_to_string('emails/babywishlist_thankyou.html', {
+    message = render_to_string('emails/wishlist_thankyou.html', {
         'user': user,
         'domain': domain,
         'contribution': contribution
     })
-    from_mail = f'Babywishlist Schori-Liem <{os.environ.get("BABYWISHLIST_EMAIL")}>'
+    from_mail = f'Wishlist Schori-Liem <{os.environ.get("WISHLIST_EMAIL")}>'
     email = EmailMessage(
         _('Thank you!'),
         message,
@@ -72,15 +72,15 @@ def send_babywishlist_thank_you_mail(user: User, domain: str, contribution: Cont
     email.send()
 
 
-def send_admin_info_for_babywishlist_contribution(contribution: Contribution):
+def send_admin_info_for_wishlist_contribution(contribution: Contribution):
     """
     Send contribution-info to admin.
     :param contribution: contribution-object
     """
-    message = render_to_string('emails/babywishlist_contribution_admin_info.html', {
+    message = render_to_string('emails/wishlist_contribution_admin_info.html', {
         'contribution': contribution
     })
-    from_mail = f'Babywishlist Schori-Liem <{os.environ.get("BABYWISHLIST_EMAIL")}>'
+    from_mail = f'Wishlist Schori-Liem <{os.environ.get("WISHLIST_EMAIL")}>'
     email = EmailMessage(
         'New Contribution on schori-liem.ch',
         message,
@@ -90,15 +90,15 @@ def send_admin_info_for_babywishlist_contribution(contribution: Contribution):
     email.send()
 
 
-def send_admin_info_for_babywishlist_contribution_delete(contribution: Contribution):
+def send_admin_info_for_wishlist_contribution_delete(contribution: Contribution):
     """
     Send contribution-info to admin when contribution is deleted.
     :param contribution: contribution-object
     """
-    message = render_to_string('emails/babywishlist_contribution_delete_admin_info.html', {
+    message = render_to_string('emails/wishlist_contribution_delete_admin_info.html', {
         'contribution': contribution
     })
-    from_mail = f'Babywishlist Schori-Liem <{os.environ.get("BABYWISHLIST_EMAIL")}>'
+    from_mail = f'Wishlist Schori-Liem <{os.environ.get("WISHLIST_EMAIL")}>'
     email = EmailMessage(
         'Contribution deleted!',
         message,

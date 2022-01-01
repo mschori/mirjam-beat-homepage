@@ -1,6 +1,6 @@
 from django import template
 from wishlist.models import Product
-from helpers import babywishlist_helper
+from helpers import wishlist_helper
 
 register = template.Library()
 
