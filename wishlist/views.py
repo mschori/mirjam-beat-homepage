@@ -20,7 +20,7 @@ def wishlist(request):
     :return: rendered wishlist
     """
     wishlist_items = Product.objects.all().order_by('purchased', '-price_progress')
-    return render(request, 'baby_wishlist/wishlist.html', {'wishlist_items': wishlist_items})
+    return render(request, 'wishlist/wishlist.html', {'wishlist_items': wishlist_items})
 
 
 @login_required()
@@ -36,17 +36,17 @@ def contribute_to_product(request, product_id):
         product = Product.objects.get(pk=product_id)
     except Product.DoesNotExist:
         messages.error(request, _('Product with this id does not exist!'))
-        return redirect('baby_wishlist')
+        return redirect('wishlist')
     if babywishlist_helper.is_product_price_progress_finished(product):
         messages.warning(request, _('Product is already fully paid. Please choose an other product.'))
-        return redirect('baby_wishlist')
+        return redirect('wishlist')
     form = ContributeForm(product=product)
     if request.method == 'POST':
         form = ContributeForm(request.POST, product=product)
         if form.is_valid():
             if form.cleaned_data['contribute'] > babywishlist_helper.calculate_remaining_price(product):
                 messages.warning(request, _('You cant contribute more than the remaining price.'))
-                return redirect('baby_wishlist')
+                return redirect('wishlist')
             contribution = Contribution.objects.create(
                 amount=form.cleaned_data['contribute'],
                 comment=form.cleaned_data['comment'],
@@ -60,7 +60,7 @@ def contribute_to_product(request, product_id):
             email_helper.send_babywishlist_thank_you_mail(user, domain, contribution)
             email_helper.send_admin_info_for_babywishlist_contribution(contribution)
             return redirect('babywishlist_thank-you-page', contribution_id=contribution.id)
-    return render(request, 'baby_wishlist/contribute.html', {'form': form, 'product': product})
+    return render(request, 'wishlist/contribute.html', {'form': form, 'product': product})
 
 
 @login_required()
@@ -83,7 +83,7 @@ def thank_you_page(request, contribution_id):
     bankname = os.environ.get('BANK_NAME')
     iban = os.environ.get('BANK_IBAN')
     to = os.environ.get('BANK_TO')
-    return render(request, 'baby_wishlist/thanks_you.html',
+    return render(request, 'wishlist/thanks_you.html',
                   {'contribution': contribution, 'bankname': bankname, 'iban': iban, 'to': to})
 
 
@@ -107,7 +107,7 @@ def delete_contribution(request, contribution_id):
     babywishlist_helper.delete_contribution(contribution)
     email_helper.send_admin_info_for_babywishlist_contribution_delete(contribution)
     messages.success(request, _('Successfully deleted your contribution.'))
-    return redirect('baby_wishlist')
+    return redirect('wishlist')
 
 
 @login_required()
@@ -123,4 +123,4 @@ def list_contributions(request):
     table_short = ContributionTableShort(contributions)
     RequestConfig(request).configure(table)
     RequestConfig(request).configure(table)
-    return render(request, 'baby_wishlist/list_contributions.html', {'table': table, 'table_short': table_short})
+    return render(request, 'wishlist/list_contributions.html', {'table': table, 'table_short': table_short})
