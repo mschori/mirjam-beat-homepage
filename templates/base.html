@@ -12,6 +12,9 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logos/Logo Emblem.png' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/logos/Logo Emblem.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     {% bootstrap_css %}
@@ -28,7 +31,7 @@
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'images/logos/Logo Emblem.png' %}" alt="" width="30" height="30"
                  class="d-inline-block align-text-top">
-            {% trans 'Logo-Name' %}
+            {% trans 'Hochzeit Mirjam &amp; Beat' %}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,9 +40,11 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link {% if request.resolver_match.url_name == 'home' %} text-secondary
-                {% endif %} " aria-current="page" href="{% url 'home' %}">{% trans 'Home' %}</a>
+                {% endif %} " aria-current="page" href="{% url 'home' %}">{% trans 'Startseite' %}</a>
                 <a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %} text-secondary
                 {% endif %} " href="{% url 'wishlist' %}">{% trans 'Wishlist' %}</a>
+                <a class="nav-link" target="_blank"
+                   href="https://www.polarsteps.com/MirjamLiem/4765437-hochzeitsreise?s=C5751751-D2F3-4088-B25D-2F242B939598">Hochzeitsreise</a>
             </div>
 
             <ul class="navbar-nav d-flex">

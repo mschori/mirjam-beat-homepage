@@ -12,18 +12,18 @@
 {% endblock %}
 
 {% block content %}
-    <div class="bg-home-title p-3 d-lg-none">
+    <div class="bg-home-title  p-1 pt-2 d-lg-none">
         <div class="container">
             <div class="row text-center">
-                <p class="display-4 mb-0 text-white">{% trans 'Homepage-Title' %}</p>
+                <p class="display-4 mb-0 text-white home-font">Hochzeit Mirjam &amp; Beat</p>
             </div>
         </div>
     </div>
 
-    <div class="bg-home-title p-3 d-none d-lg-block">
+    <div class="bg-home-title p-1 pt-4 d-none d-lg-block">
         <div class="container">
             <div class="row text-center">
-                <p class="home-title text-white">{% trans 'Homepage-Title' %}</p>
+                <p class="home-title text-white home-font">Hochzeit Mirjam &amp; Beat</p>
             </div>
         </div>
     </div>
@@ -34,16 +34,50 @@
     <div class="container mb-3">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-6">
-                <p>{% trans 'Dear family, dear friends' %}</p>
                 <p>
-                    {% blocktranslate %}
-                        Welcome-Text for this homepage...
-                    {% endblocktranslate %}
+                    Liebe Hochzeitsgäste
+                    <br>
+                    Herzlich willkommen auf unserer Hochzeits-Homepage!
+                </p>
+                <p>
+                    Wenn du oben auf «Wishlist» drückst, kommst du direkt zu unserer Wunschliste.
+                </p>
+                <p>
+                    Wähle das Objekt, zu dem du einen Teil beitragen möchtest und drücke «Ich möchte beitragen». Nun
+                    wirst zu einer Seite geführt, auf welcher du dich registrieren musst.
+                </p>
+                    Anschliessend hast du die Wahl zwischen:
+                <ul>
+                    <li>
+                        Du kannst einen frei wählbaren Betrag spenden.
+                    </li>
+                    <li>
+                        Du kannst das Objekt selbst kaufen, dann kreuze das betreffende Kästchen an.
+                    </li>
+                </ul>
+                <p>
+                    Wenn du bereits die perfekte Geschenkidee hast, freuen wir uns auf die Überraschung!
+                </p>
+                <p>
+                    Du möchtest unser Abenteuer in Namibia vom 15. April bis 17. Mai 2022 mitverfolgen? Dann klicke auf
+                    den Link <a
+                        href="https://www.polarsteps.com/MirjamLiem/4765437-hochzeitsreise?s=C5751751-D2F3-4088-B25D-2F242B939598"
+                        target="_blank" class="text-secondary">Hochzeitsreise</a> im Menu.
+                </p>
+                <p>
+                    Liebe Grüsse und bis bald!
+                    <br>
+                    Mirjam und Beat
                 </p>
             </div>
-            <div class="col-12 col-lg-4 text-center">
+            <div class="col-12 d-lg-none text-center">
                 <div class="d-lg-none mt-3"></div>
-                <img src="{% static 'images/people/Sample_User_Icon.png' %}" alt=""
+                <img src="{% static 'images/people/DSC08254.JPG' %}" alt=""
+                     class="img-fluid">
+            </div>
+            <div class="d-none d-lg-block col-lg-4 text-center">
+                <div class="d-lg-none mt-3"></div>
+                <img src="{% static 'images/people/DSC08245.JPG' %}" alt=""
                      class="img-fluid">
             </div>
         </div>

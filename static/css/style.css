@@ -77,7 +77,11 @@ input[type="color"]:focus,
 }
 
 .bg-home-title {
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+.home-font {
+font-family: 'Beau Rivage', cursive;
 }
 
 hr {
